@@ -41,6 +41,8 @@ public class Utilisateur {
 		this.role=role;
 	}
 
+	public Utilisateur(){}
+
 	public String getNom() {
 		return nom;
 	}

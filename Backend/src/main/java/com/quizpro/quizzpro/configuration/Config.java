@@ -9,7 +9,8 @@ public class Config {
 	
 	@Bean
 	public BCryptPasswordEncoder motPasseCryp() {
-        return new BCryptPasswordEncoder();
+        BCryptPasswordEncoder bcypt= new BCryptPasswordEncoder();
+        return bcypt;
     }
 
 }
