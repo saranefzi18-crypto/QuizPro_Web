@@ -22,8 +22,26 @@ public class AuthService {
 
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
-		Utilisateur u=utlrepo.findByEmail(utl.getEmail());
 		
+		if(utl.getNom() == null || !utl.getNom().matches("^[\\\\p{L}]+([ '-][\\\\p{L}]+)*$")){
+			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
+		}
+
+		if(utl.getPrenom() == null || !utl.getNom().matches("^[\\\\p{L}]+([ '-][\\\\p{L}]+)*$")){
+			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
+		}
+
+		if (utl.getEmail().isEmpty() || !utl.getEmail().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+        	throw new RuntimeException("Format d'email invalide");
+    	}
+
+		if(utl.getMotdepasse().isEmpty() || !utl.getMotdepasse().matches("^[A-Za-z0-9]") || utl.getMotdepasse().length() < 8){
+			throw new RuntimeException("Mot de passe invalide");
+		}
+
+		utl.setEmail(utl.getEmail());
+		Utilisateur u = utlrepo.findByEmail(utl.getEmail());
+
 		if(u!=null) {
 			throw new RuntimeException("Email déjà utilisé !");
 		}
