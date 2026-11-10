@@ -1,31 +1,43 @@
-<!-- Barre de navigation -->
 <header class="navbar">
-  <a href="#" class="logo">
-    <img src="logo-winshot.png" alt="Logo Winshot" />
+
+  <div class="logo">
+    <img src="logo-winshot.png" alt="Logo">
     <span>Quizz<strong>Pro</strong></span>
-  </a>
+  </div>
+
   <nav>
     <a href="#fonctionnalites">Fonctionnalités</a>
     <a href="#themes">Formations</a>
     <a href="#profils">Profils</a>
     <a routerLink="/login" class="btn">Se connecter</a>
   </nav>
+
 </header>
 
-<!-- Section principale -->
 <section class="hero">
-  <h1>Formez et <span class="accent">évaluez</span> vos commerciaux</h1>
+
+  <h1>Formez et <span>évaluez</span> vos commerciaux</h1>
+
   <p>
+<<<<<<< HEAD
     QuizzPro est une plateforme de quiz pour tester les connaissances des
     équipes commerciales, consolider leurs acquis et suivre leur progression.
+=======
+    QuizzPro est une plateforme de quiz pour tester les connaissances
+    des équipes commerciales, consolider leurs acquis et suivre leur progression.
+>>>>>>> 907fbe2c1444a9efb2fc2d60173ba7ae82ad11c0
   </p>
+
   <a routerLink="/login" class="btn btn-grand">Commencer</a>
+
 </section>
 
-<!-- Fonctionnalités -->
 <section id="fonctionnalites" class="section">
+
   <h2>Fonctionnalités</h2>
+
   <div class="grille">
+<<<<<<< HEAD
     @for (f of fonctionnalites; track f.titre) {
     <div class="carte">
       <div class="icone">{{ f.icone }}</div>
@@ -33,12 +45,41 @@
       <p>{{ f.texte }}</p>
     </div>
     }
+=======
+
+    <div class="carte">
+      <div class="icone">📝</div>
+      <h3>Quiz variés</h3>
+      <p>QCM, réponse unique, vrai ou faux et réponse courte.</p>
+    </div>
+
+    <div class="carte">
+      <div class="icone">⏱️</div>
+      <h3>Durée et échéances</h3>
+      <p>Chaque quiz a une durée et une date limite définies.</p>
+    </div>
+
+    <div class="carte">
+      <div class="icone">📊</div>
+      <h3>Résultats détaillés</h3>
+      <p>Score, corrections et explications après chaque quiz.</p>
+    </div>
+
+    <div class="carte">
+      <div class="icone">📈</div>
+      <h3>Suivi de progression</h3>
+      <p>Suivez votre évolution par thème et par période.</p>
+    </div>
+
+>>>>>>> 907fbe2c1444a9efb2fc2d60173ba7ae82ad11c0
   </div>
+
 </section>
 
-<!-- Thèmes de formation -->
 <section id="themes" class="section fond-gris">
+
   <h2>Thèmes de formation</h2>
+<<<<<<< HEAD
   <p class="sous-titre">
     Des quiz d'entraînement et des évaluations sur tous les sujets commerciaux.
   </p>
@@ -46,13 +87,30 @@
     @for (t of themes; track t) {
     <span class="badge">{{ t }}</span>
     }
+=======
+
+  <p class="sous-titre">
+    Des quiz d'entraînement et des évaluations sur tous les sujets commerciaux.
+  </p>
+
+  <div class="themes">
+
+    <span class="badge">Produits</span>
+    <span class="badge">Services</span>
+    <span class="badge">Techniques de vente</span>
+    <span class="badge">Relation client</span>
+
+>>>>>>> 907fbe2c1444a9efb2fc2d60173ba7ae82ad11c0
   </div>
+
 </section>
 
-<!-- Profils -->
 <section id="profils" class="section">
+
   <h2>Pour qui ?</h2>
+
   <div class="grille">
+<<<<<<< HEAD
     @for (p of profils; track p.titre) {
     <div class="carte">
       <h3>{{ p.titre }}</h3>
@@ -63,13 +121,53 @@
       </ul>
     </div>
     }
+=======
+
+    <div class="carte">
+      <h3>Commercial</h3>
+      <ul>
+        <li>Répondre aux quiz attribués</li>
+        <li>Consulter ses résultats</li>
+        <li>Suivre sa progression</li>
+      </ul>
+    </div>
+
+    <div class="carte">
+      <h3>Formateur / Responsable</h3>
+      <ul>
+        <li>Créer et publier des quiz</li>
+        <li>Affecter les quiz aux équipes</li>
+        <li>Analyser les résultats</li>
+      </ul>
+    </div>
+
+    <div class="carte">
+      <h3>Administrateur</h3>
+      <ul>
+        <li>Gérer les comptes et les rôles</li>
+        <li>Gérer les catégories</li>
+        <li>Consulter les statistiques</li>
+      </ul>
+    </div>
+
+>>>>>>> 907fbe2c1444a9efb2fc2d60173ba7ae82ad11c0
   </div>
+
 </section>
 
-<!-- Pied de page -->
 <footer class="footer">
+<<<<<<< HEAD
   <p>
     © {{ annee }} QuizzPro par <span class="accent">Winshot</span> — Plateforme
     de formation commerciale
   </p>
 </footer>
+=======
+
+  <p>
+    © {{ annee }} QuizzPro par
+    <span>Winshot</span> — Plateforme de formation commerciale
+  </p>
+
+</footer>
+>>>>>>> 907fbe2c1444a9efb2fc2d60173ba7ae82ad11c0

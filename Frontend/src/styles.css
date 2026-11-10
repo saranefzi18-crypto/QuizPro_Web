@@ -1,11 +1,13 @@
-/* Couleurs du thème (tirées du logo Winshot) */
+
 :root {
   --bleu-clair: #8bdcee;
   --bleu: #61cbea;
   --bleu-fonce: #1593c4;
   --bleu-nuit: #0b4f6c;
+
   --orange: #ff9e19;
   --orange-fonce: #f08c00;
+
   --fond-clair: #eef9fc;
   --texte: #2f3e46;
 }
@@ -17,6 +19,9 @@ html {
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #fff;
+  background: white;
   color: var(--texte);
 }
+
+
+
