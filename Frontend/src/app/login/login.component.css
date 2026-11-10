@@ -1,4 +1,4 @@
-/* Style du conteneur du formulaire */
+
 .div-form {
   background: #ffffff;
   padding: 30px;
@@ -6,7 +6,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 380px;
-  margin: 50px auto; /* باش يجي في وسط الصفحة */
+  margin: 50px auto; 
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
