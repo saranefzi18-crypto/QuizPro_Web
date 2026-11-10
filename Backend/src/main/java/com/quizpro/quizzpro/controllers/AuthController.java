@@ -22,7 +22,7 @@ private AuthService utlServ;
 		this.utlServ=utlServ;
 	}
 	
-	@PostMapping("/insription")
+	@PostMapping("/inscription")
 	public Utilisateur inscrir(@RequestBody Utilisateur utl) {
 		return utlServ.inscrire(utl);
 	}

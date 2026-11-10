@@ -36,7 +36,7 @@ public class AuthService {
         	throw new RuntimeException("Format d'email invalide");
     	}
 
-		if(utl.getMotdepasse() == null || !utl.getMotdepasse().matches("^[A-Za-z0-9]+$") || utl.getMotdepasse().length() < 8){
+		if(utl.getMotdepasse() == null || !utl.getMotdepasse().matches("^[A-Za-z0-9]+$") || utl.getMotdepasse().length()> 8){
 			throw new RuntimeException("Mot de passe invalide");
 		}
 

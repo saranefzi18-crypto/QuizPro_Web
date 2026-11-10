@@ -17,7 +17,7 @@ export class InscriptionComponent {
   email = '';
   motdepasse = '';
   confirmMotdePasse = '';
-  roles = '';
+  role = '';
   message = '';
 
   t1 = false;
@@ -50,23 +50,23 @@ export class InscriptionComponent {
     else if (this.email == '' || !this.email.includes('@')){
       this.message = "Email invalide";
     }
-    else if(motdepasse.length < 9 || !this.t1 || !this.t2){
-      this.message ="le mots de passe doit etre contient des chiffres, des lettres et de taille ne dépasse pas 9 caractéres!!"
+    else if(motdepasse.length > 8 || !this.t1 || !this.t2){
+      this.message ="le mots de passe doit etre contient des chiffres, des lettres et de taille ne dépasse pas 8 caractéres!!"
     }
     else if(this.motdepasse !== this.confirmMotdePasse){
       this.message = "Mot de passe non identique";
       return;
     }
     else {
-      this.auth.register({nom: this.nom, prenom: this.prenom, email: this.email, motdepasse: this.motdepasse, roles: this.roles}).subscribe({
+      this.auth.register({nom: this.nom, prenom: this.prenom, email: this.email, motdepasse: this.motdepasse, role: this.role}).subscribe({
       next: () => {
         this.message = "Compte créé avec succès";
 
-        if(this.roles == "commercial"){
-          this.router.navigate(['/home']);
+        if(this.role == "Commercial"){
+          this.router.navigate(['']);
         }
 
-        if(this.roles == "formateur"){
+        if(this.role == "Formateur"){
           this.router.navigate(['/login']); 
         }
       },

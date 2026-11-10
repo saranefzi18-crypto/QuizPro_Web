@@ -36,6 +36,7 @@ nav a:hover {
   color: var(--bleu-fonce);
 }
 
+
 .btn {
   background: var(--orange);
   color: white !important;
@@ -51,7 +52,6 @@ nav a:hover {
   display: inline-block;
   margin-top: 20px;
   padding: 14px 30px;
-  text-decoration: none;
 }
 
 .hero {
@@ -75,6 +75,7 @@ nav a:hover {
   font-size: 18px;
   line-height: 1.6;
 }
+
 .section {
   padding: 60px 40px;
   text-align: center;
@@ -179,13 +180,3 @@ nav a:hover {
   }
 
 }
-
-
-
-
-
-
-
-
-
-

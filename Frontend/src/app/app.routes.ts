@@ -4,7 +4,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
 
 export const routes: Routes = [
   { path: '', component: AccueilComponent },
-  { path: '**', redirectTo: '' },
+  {path: 'inscription', component: InscriptionComponent},
+  /*{path: 'login', component: LoginComponment}*/
   
   
 

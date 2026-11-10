@@ -1,0 +1,86 @@
+
+.div-form {
+  width: 400px;
+  max-width: 90%;
+  margin: 60px auto;
+  padding: 35px;
+  background: white;
+  border-radius: 15px;
+  border-top: 5px solid var(--bleu);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.div-form h1 {
+  text-align: center;
+  color: var(--bleu-nuit);
+  margin-bottom: 30px;
+  font-size: 27px;
+}
+
+.div-form label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--bleu-nuit);
+  font-weight: bold;
+}
+
+.div-form input,
+.div-form select {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 18px;
+  border: 1px solid #cbdde3;
+  border-radius: 7px;
+  box-sizing: border-box;
+  font-size: 15px;
+  outline: none;
+}
+
+.div-form input:focus,
+.div-form select:focus {
+  border-color: var(--bleu-fonce);
+}
+
+.div-form button {
+  width: 100%;
+  padding: 13px;
+  background: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.div-form button:hover {
+  background: var(--orange-fonce);
+}
+
+.div-form p {
+  text-align: center;
+  margin-top: 15px;
+  color: var(--texte);
+}
+
+.div-form a {
+  color: var(--bleu-fonce);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.div-form a:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 500px) {
+  .div-form {
+    padding: 25px 20px;
+    margin: 30px auto;
+  }
+
+  .div-form h1 {
+    font-size: 23px;
+  }
+}
