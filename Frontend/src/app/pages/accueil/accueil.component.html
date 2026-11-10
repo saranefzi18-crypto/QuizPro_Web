@@ -16,8 +16,8 @@
 <section class="hero">
   <h1>Formez et <span class="accent">évaluez</span> vos commerciaux</h1>
   <p>
-    QuizzPro est une plateforme de quiz pour tester les connaissances des équipes
-    commerciales, consolider leurs acquis et suivre leur progression.
+    QuizzPro est une plateforme de quiz pour tester les connaissances des
+    équipes commerciales, consolider leurs acquis et suivre leur progression.
   </p>
   <a routerLink="/login" class="btn btn-grand">Commencer</a>
 </section>
@@ -27,11 +27,11 @@
   <h2>Fonctionnalités</h2>
   <div class="grille">
     @for (f of fonctionnalites; track f.titre) {
-      <div class="carte">
-        <div class="icone">{{ f.icone }}</div>
-        <h3>{{ f.titre }}</h3>
-        <p>{{ f.texte }}</p>
-      </div>
+    <div class="carte">
+      <div class="icone">{{ f.icone }}</div>
+      <h3>{{ f.titre }}</h3>
+      <p>{{ f.texte }}</p>
+    </div>
     }
   </div>
 </section>
@@ -39,10 +39,12 @@
 <!-- Thèmes de formation -->
 <section id="themes" class="section fond-gris">
   <h2>Thèmes de formation</h2>
-  <p class="sous-titre">Des quiz d'entraînement et des évaluations sur tous les sujets commerciaux.</p>
+  <p class="sous-titre">
+    Des quiz d'entraînement et des évaluations sur tous les sujets commerciaux.
+  </p>
   <div class="themes">
     @for (t of themes; track t) {
-      <span class="badge">{{ t }}</span>
+    <span class="badge">{{ t }}</span>
     }
   </div>
 </section>
@@ -52,19 +54,22 @@
   <h2>Pour qui ?</h2>
   <div class="grille">
     @for (p of profils; track p.titre) {
-      <div class="carte">
-        <h3>{{ p.titre }}</h3>
-        <ul>
-          @for (point of p.points; track point) {
-            <li>{{ point }}</li>
-          }
-        </ul>
-      </div>
+    <div class="carte">
+      <h3>{{ p.titre }}</h3>
+      <ul>
+        @for (point of p.points; track point) {
+        <li>{{ point }}</li>
+        }
+      </ul>
+    </div>
     }
   </div>
 </section>
 
 <!-- Pied de page -->
 <footer class="footer">
-  <p>© {{ annee }} QuizzPro par <span class="accent">Winshot</span> — Plateforme de formation commerciale</p>
+  <p>
+    © {{ annee }} QuizzPro par <span class="accent">Winshot</span> — Plateforme
+    de formation commerciale
+  </p>
 </footer>

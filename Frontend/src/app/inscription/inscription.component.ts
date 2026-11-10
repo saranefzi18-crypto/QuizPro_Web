@@ -1,0 +1,82 @@
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../service/auth.service';
+
+
+
+@Component({
+  selector: 'app-inscription',
+  imports: [RouterLink,FormsModule],
+  templateUrl: './inscription.component.html',
+  styleUrl: './inscription.component.css'
+})
+export class InscriptionComponent {
+  nom = '';
+  prenom = '';
+  email = '';
+  motdepasse = '';
+  confirmMotdePasse = '';
+  roles = '';
+  message = '';
+
+  t1 = false;
+  t2 = false;
+
+  constructor(public auth: AuthService, public router: Router){}
+
+  register() {
+    const motdepasse = this.motdepasse;
+    const lett ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const chif ="0123456789";
+    
+    this.t1=false;
+    this.t2=false;
+
+    for(let i =0 ; i< motdepasse.length ; i++){
+      const c =motdepasse[i];
+      if(lett.includes(c)){
+        this.t1=true;
+      }
+      if (chif.includes(c)){
+        this.t2=true;
+      }
+    }
+
+    if (this.nom=="" || this.prenom==""){
+      this.message="Entrer votre nom et prenom"
+    }
+
+    else if (this.email == '' || !this.email.includes('@')){
+      this.message = "Email invalide";
+    }
+    else if(motdepasse.length < 9 || !this.t1 || !this.t2){
+      this.message ="le mots de passe doit etre contient des chiffres, des lettres et de taille ne dépasse pas 9 caractéres!!"
+    }
+    else if(this.motdepasse !== this.confirmMotdePasse){
+      this.message = "Mot de passe non identique";
+      return;
+    }
+    else {
+      this.auth.register({nom: this.nom, prenom: this.prenom, email: this.email, motdepasse: this.motdepasse, roles: this.roles}).subscribe({
+      next: () => {
+        this.message = "Compte créé avec succès";
+
+        if(this.roles == "commercial"){
+          this.router.navigate(['/home']);
+        }
+
+        if(this.roles == "formateur"){
+          this.router.navigate(['/login']); 
+        }
+      },
+
+      error: () => {
+        this.message = "Erreur inscription";
+      }
+
+    });
+    }
+  }
+
+}
