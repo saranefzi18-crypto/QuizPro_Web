@@ -23,23 +23,23 @@ public class AuthService {
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
 		
-		if(utl.getNom() == null || !utl.getNom().matches("^[a-zA-Z]")){
+		
+		if(utl.getNom() == null || !utl.getNom().matches("^[a-zA-Z]+$")){
 			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
 		}
 
-		if(utl.getPrenom() == null || !utl.getNom().matches("^[a-zA-Z]")){
+		if(utl.getPrenom() == null || !utl.getPrenom().matches("^[a-zA-Z]+$")){
 			throw new RuntimeException("Le prenom doit contenir uniquement des lettres ");
 		}
 
-		if (utl.getEmail().isEmpty() || !utl.getEmail().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {
+		if (utl.getEmail() == null || !utl.getEmail().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+$")) {
         	throw new RuntimeException("Format d'email invalide");
     	}
 
-		if(utl.getMotdepasse().isEmpty() || !utl.getMotdepasse().matches("^[A-Za-z0-9]") || utl.getMotdepasse().length() < 8){
+		if(utl.getMotdepasse() == null || !utl.getMotdepasse().matches("^[A-Za-z0-9]+$") || utl.getMotdepasse().length() < 8){
 			throw new RuntimeException("Mot de passe invalide");
 		}
 
-		utl.setEmail(utl.getEmail());
 		Utilisateur u = utlrepo.findByEmail(utl.getEmail());
 
 		if(u!=null) {
@@ -49,7 +49,7 @@ public class AuthService {
 		String mpCryp =mopcryp.encode(utl.getMotdepasse());
 		utl.setMotdepasse(mpCryp);
 
-		String role = utl.getRole();
+		String role = utl.getRole().toLowerCase();
 
 		Utilisateur n = new Utilisateur();
 
