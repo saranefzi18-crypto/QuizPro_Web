@@ -43,7 +43,12 @@ export class InscriptionComponent {
       }
     }
 
-    if (this.nom=="" || this.prenom==""){
+
+    if (this.nom=="" || !lett.includes(this.nom) ){
+      this.message="Entrer votre nom et prenom"
+    }
+
+    else if (this.prenom=="" || !lett.includes(this.prenom) ){
       this.message="Entrer votre nom et prenom"
     }
 
