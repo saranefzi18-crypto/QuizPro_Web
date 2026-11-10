@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { User } from '../models/user';
+
 import { AuthService } from '../service/auth.service';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Utilisateur } from '../models/utilisateur';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
   email = '';
   password = '';
   message ='';
-  user! : User;
+  user! : Utilisateur;
   constructor(public auth : AuthService, public router: Router){}
 
   login() {
@@ -22,23 +23,17 @@ export class LoginComponent {
       next: res => {
         console.log(res);
 
-        this.auth.userConnect = res.user
-
-        localStorage.setItem('token', res.token);
-        this.user=res.user;
-
-        if(this.user.roles=="commercial" && this.user.status_compte=="Activer"){
-          this.router.navigate(['/commercial']);
+        if(this.user.role=="commercial" ){
+          this.router.navigate(['']);
         }
 
-        else if(this.user.roles=="Formateur" && this.user.status_compte=="Activer"){
-          this.router.navigate(['/Formateur'])
+        else if(this.user.role=="formateur" ){
+          this.router.navigate(['/Formateurhome'])
         }
 
-        else if(this.user.roles=="administrateur"){
-          this.router.navigate(['/admin'])
+        else if(this.user.role=="administrateur"){
+          this.router.navigate(['/adminhome'])
         }
-        else{this.message = "Ce compte a été desactiver";}
         
       },
       error: () => {
