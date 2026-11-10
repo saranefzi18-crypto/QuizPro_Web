@@ -44,13 +44,13 @@ export class InscriptionComponent {
     }
 
 
-    if (this.nom=="" || !lett.includes(this.nom) ){
-      this.message="Entrer votre nom et prenom"
+    if (this.nom=="" || this.prenom=="" || !lett.includes(this.nom) || !lett.includes(this.prenom)){
+      this.message="Entrer votre nom ou prenom"
     }
 
-    else if (this.prenom=="" || !lett.includes(this.prenom) ){
-      this.message="Entrer votre nom et prenom"
-    }
+    /*else if (this.prenom=="" || !lett.includes(this.prenom) ){
+      this.message="Entrer votre prenom"
+    }*/
 
     else if (this.email == '' || !this.email.includes('@')){
       this.message = "Email invalide";

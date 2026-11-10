@@ -1,4 +1,4 @@
-package com.example.quizpro;
+package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -24,10 +24,6 @@ public class Reponse {
     @ManyToOne
     @JoinColumn(name = "id_quest")
     private Question question;
-
-    protected Reponse() {
-        // Constructeur requis par JPA.
-    }
 
     public Reponse(String contenu, String explication, float pointObtenu, LocalDate dateR, Question question) {
         this.contenu = contenu;

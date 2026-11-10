@@ -1,4 +1,4 @@
-package com.example.quizpro;
+package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -25,10 +25,6 @@ public class Support {
     @ManyToOne
     @JoinColumn(name = "id_quiz")
     private Quiz quiz;
-
-    protected Support() {
-        // Constructeur requis par JPA.
-    }
 
     public Support(String titre, String descr, String typeSuppt, LocalDate dateAjout, Quiz quiz) {
         this.titre = titre;

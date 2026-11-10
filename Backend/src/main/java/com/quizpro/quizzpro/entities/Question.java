@@ -1,4 +1,4 @@
-package com.example.quizpro;
+package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;

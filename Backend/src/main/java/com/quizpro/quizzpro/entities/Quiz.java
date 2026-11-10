@@ -1,4 +1,4 @@
-package com.example.quizpro;
+package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -42,7 +42,7 @@ public class Quiz {
 
     @ManyToOne
     @JoinColumn(name = "id_cat")
-    private Categorie categorie;
+    private categorie categorie;
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
@@ -52,13 +52,9 @@ public class Quiz {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
-    protected Quiz() {
-        // Constructeur requis par JPA.
-    }
-
     public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
                 LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
-                String typeQuiz, String statut, float score, Categorie categorie, 
+                String typeQuiz, String statut, float score, categorie categorie, 
                 Administrateur administrateur, Formateur formateur) {
         this.titre = titre;
         this.description = description;
@@ -115,10 +111,10 @@ public class Quiz {
     public void setStatut(String statut) { this.statut = statut; }
 
     public float getScore() { return score; }
-    public void setScore(float score) { this.score = score; }
+    public void setScore(float score) { this.score = score; } 
 
-    public Categorie getCategorie() { return categorie; }
-    public void setCategorie(Categorie categorie) { this.categorie = categorie; }
+    public categorie getCategorie() { return categorie; }
+    public void setCategorie(categorie categorie) { this.categorie = categorie; }
 
     public Administrateur getAdministrateur() { return administrateur; }
     public void setAdministrateur(Administrateur administrateur) { this.administrateur = administrateur; }
