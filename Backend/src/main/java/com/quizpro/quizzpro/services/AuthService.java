@@ -23,12 +23,12 @@ public class AuthService {
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
 		
-		if(utl.getNom() == null || !utl.getNom().matches("^[\\\\p{L}]+([ '-][\\\\p{L}]+)*$")){
+		if(utl.getNom() == null || !utl.getNom().matches("^[a-zA-Z]")){
 			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
 		}
 
-		if(utl.getPrenom() == null || !utl.getNom().matches("^[\\\\p{L}]+([ '-][\\\\p{L}]+)*$")){
-			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
+		if(utl.getPrenom() == null || !utl.getNom().matches("^[a-zA-Z]")){
+			throw new RuntimeException("Le prenom doit contenir uniquement des lettres ");
 		}
 
 		if (utl.getEmail().isEmpty() || !utl.getEmail().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")) {

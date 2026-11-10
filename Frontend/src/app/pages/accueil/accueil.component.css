@@ -1,27 +1,24 @@
-/* Barre de navigation */
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 40px;
-  background: #fff;
+  padding: 10px 40px;
+  background: white;
   border-bottom: 3px solid var(--bleu);
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
   font-size: 22px;
   color: var(--bleu-nuit);
+  font-weight: bold;
 }
 
 .logo img {
-  height: 70px;
+  height: 65px;
 }
 
 .logo strong {
@@ -30,8 +27,8 @@
 
 nav a {
   margin-left: 20px;
-  color: var(--bleu-nuit);
   text-decoration: none;
+  color: var(--bleu-nuit);
   font-weight: bold;
 }
 
@@ -39,13 +36,11 @@ nav a:hover {
   color: var(--bleu-fonce);
 }
 
-/* Boutons */
 .btn {
   background: var(--orange);
-  color: #fff !important;
-  padding: 9px 20px;
+  color: white !important;
+  padding: 10px 20px;
   border-radius: 25px;
-  text-decoration: none;
 }
 
 .btn:hover {
@@ -54,13 +49,11 @@ nav a:hover {
 
 .btn-grand {
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 34px;
-  font-size: 18px;
-  font-weight: bold;
+  margin-top: 20px;
+  padding: 14px 30px;
+  text-decoration: none;
 }
 
-/* Section principale */
 .hero {
   text-align: center;
   padding: 100px 20px;
@@ -68,23 +61,20 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 44px;
+  font-size: 40px;
   color: var(--bleu-nuit);
-  margin: 0 0 20px;
+}
+
+.hero h1 span {
+  color: var(--orange);
 }
 
 .hero p {
   max-width: 620px;
-  margin: 0 auto;
+  margin: auto;
   font-size: 18px;
   line-height: 1.6;
 }
-
-.accent {
-  color: var(--orange);
-}
-
-/* Sections */
 .section {
   padding: 60px 40px;
   text-align: center;
@@ -96,17 +86,6 @@ nav a:hover {
   margin-bottom: 30px;
 }
 
-/* Petit trait orange sous les titres */
-.section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: var(--orange);
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
 .fond-gris {
   background: var(--fond-clair);
 }
@@ -115,33 +94,32 @@ nav a:hover {
   margin-bottom: 25px;
 }
 
-/* Cartes */
 .grille {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
 }
 
 .carte {
-  background: #fff;
+  background: white;
+  width: 220px;
   padding: 25px;
   border-radius: 12px;
   border-top: 5px solid var(--bleu);
-  box-shadow: 0 4px 12px rgba(11, 79, 108, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: left;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
 .carte:hover {
-  transform: translateY(-5px);
+  border-top-color: var(--orange);
+  transform: translateY(-8px);
   border-top-color: var(--orange);
 }
 
 .carte h3 {
   color: var(--bleu-nuit);
-  margin-top: 0;
 }
 
 .carte p,
@@ -151,10 +129,8 @@ nav a:hover {
 
 .icone {
   font-size: 32px;
-  margin-bottom: 10px;
 }
 
-/* Thèmes */
 .themes {
   display: flex;
   justify-content: center;
@@ -163,7 +139,7 @@ nav a:hover {
 }
 
 .badge {
-  background: #fff;
+  background: white;
   border: 2px solid var(--bleu);
   color: var(--bleu-nuit);
   padding: 10px 20px;
@@ -173,30 +149,43 @@ nav a:hover {
 
 .badge:hover {
   background: var(--bleu);
-  color: #fff;
+  color: white;
 }
 
-/* Pied de page */
 .footer {
   background: var(--bleu-nuit);
-  color: #fff;
+  color: white;
   text-align: center;
   padding: 20px;
 }
 
-/* Mobile */
+.footer span {
+  color: var(--orange);
+}
+
 @media (max-width: 700px) {
+
   .navbar {
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
+    gap: 15px;
   }
 
   nav a {
-    margin: 0 8px;
+    margin: 5px;
   }
 
   .hero h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
+
 }
+
+
+
+
+
+
+
+
+
+
