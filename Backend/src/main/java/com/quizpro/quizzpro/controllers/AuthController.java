@@ -26,4 +26,9 @@ private AuthService utlServ;
 	public Utilisateur inscrir(@RequestBody Utilisateur utl) {
 		return utlServ.inscrire(utl);
 	}
+
+	@PostMapping("/login")
+	public Utilisateur login(@RequestBody Utilisateur utl){
+		return utlServ.login(utl);
+	}
 }

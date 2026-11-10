@@ -92,7 +92,6 @@ public class AuthService {
 		if (!test) {
         	throw new RuntimeException("Email ou mot de passe incorrect !");
     	}
-
 		return u;
 	}
 }
