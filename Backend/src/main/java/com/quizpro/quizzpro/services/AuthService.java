@@ -23,7 +23,6 @@ public class AuthService {
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
 		
-		
 		if(utl.getNom() == null || !utl.getNom().matches("^[a-zA-Z]+$")){
 			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
 		}
@@ -71,4 +70,29 @@ public class AuthService {
 		return utlrepo.save(n);
 	}
 
+	@Transactional
+	public Utilisateur login(Utilisateur utl) {
+
+		if (utl == null) {
+			throw new RuntimeException("Données de connexion invalides !");
+		}
+
+		if (utl.getEmail() == null || utl.getMotdepasse() == null ) {
+			throw new RuntimeException("Email et mot de passe requis !");
+		}
+
+		Utilisateur u = utlrepo.findByEmail(utl.getEmail().trim());
+
+		if (u == null) {
+        	throw new RuntimeException("Email ou mot de passe incorrect !");
+    	}
+
+		boolean test= mopcryp.matches(utl.getMotdepasse(), u.getMotdepasse());
+
+		if (!test) {
+        	throw new RuntimeException("Email ou mot de passe incorrect !");
+    	}
+
+		return u;
+	}
 }

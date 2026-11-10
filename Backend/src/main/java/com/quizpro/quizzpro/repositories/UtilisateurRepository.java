@@ -8,7 +8,5 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
 	
 
 	Utilisateur findByEmail(String email);
-	Utilisateur findByMotdepasse(String motdepasse);
-	Utilisateur findByRole(String role);
 
 }
