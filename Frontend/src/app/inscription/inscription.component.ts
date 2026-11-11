@@ -43,12 +43,17 @@ export class InscriptionComponent {
       }
     }
 
+<<<<<<< HEAD
     if (this.nom=="" || !lett.includes(this.nom) ){
       this.message="Entrer votre nom et prenom"
+=======
+    if (this.nom.trim() == "" || !this.nom.split('').every(c => lett.includes(c))){
+      this.message = "Entrer votre nom";
+>>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
     }
 
-    else if (this.prenom=="" || !lett.includes(this.prenom) ){
-      this.message="Entrer votre nom et prenom"
+    else if (this.prenom.trim() == "" || !this.prenom.split('').every(c => lett.includes(c))){
+      this.message = "Entrer votre prenom";
     }
 
     else if (this.email == '' || !this.email.includes('@')){

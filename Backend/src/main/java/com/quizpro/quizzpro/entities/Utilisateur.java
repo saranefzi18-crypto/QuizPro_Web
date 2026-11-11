@@ -1,87 +1,59 @@
 package com.quizpro.quizzpro.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "utilisateur")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	protected Long id;
-	
-	@Column(nullable = false, length = 150)
-	protected String nom;
-	
-	@Column(nullable = false, length = 150)
-	protected String prenom;
-	
-	@Column(nullable = false, length = 200)
-	protected String email;
-	
-	@Column(nullable = false, length = 255)
-	protected String motdepasse;
-	
-	@Column(nullable = false, length = 50)
-	protected String role;
-	
-	public Utilisateur(String nom, String prenom, String email, String motdepasse, String role) {
-		this.nom=nom;
-		this.prenom=prenom;
-		this.email=email;
-		this.motdepasse=motdepasse;
-		this.role=role;
-	}
 
-	public Utilisateur(){}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public String getNom() {
-		return nom;
-	}
+    @Column(length = 50)
+    private String nom;
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
+    @Column(length = 70)
+    private String prenom;
 
-	public String getPrenom() {
-		return prenom;
-	}
+    @Column(unique = true, length = 100)
+    private String email;
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
+    @Column(length = 255) 
+    private String motdepasse;
 
-	public String getEmail() {
-		return email;
-	}
+    @Column(length = 30)
+    private String role;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+   public Utilisateur() {
+        // Constructeur requis par JPA.
+    }
 
-	public String getMotdepasse() {
-		return motdepasse;
-	}
+    public Utilisateur(String nom, String prenom, String email, String motdepasse, String role) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.motdepasse = motdepasse;
+        this.role = role;
+    }
 
-	public void setMotdepasse(String motdepasse) {
-		this.motdepasse = motdepasse;
-	}
+   
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-	public String getRole() {
-		return role;
-	}
+    public String getNom() { return nom; }
+    public void setNom(String nom) { this.nom = nom; }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
-	
+    public String getPrenom() { return prenom; }
+    public void setPrenom(String prenom) { this.prenom = prenom; }
 
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getMotdepasse() { return motdepasse; }
+    public void setMotdepasse(String motdepasse) { this.motdepasse = motdepasse; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
