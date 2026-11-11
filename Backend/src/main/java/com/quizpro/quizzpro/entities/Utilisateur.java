@@ -26,9 +26,7 @@ public class Utilisateur {
     @Column(length = 30)
     private String role;
 
-   public Utilisateur() {
-        // Constructeur requis par JPA.
-    }
+   public Utilisateur() {}
 
     public Utilisateur(String nom, String prenom, String email, String motdepasse, String role) {
         this.nom = nom;

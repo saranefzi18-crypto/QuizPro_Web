@@ -34,7 +34,7 @@ export class InscriptionComponent {
     this.t2=false;
 
     for(let i =0 ; i< motdepasse.length ; i++){
-      const c =motdepasse[i];
+      let c =motdepasse[i];
       if(lett.includes(c)){
         this.t1=true;
       }
@@ -43,25 +43,36 @@ export class InscriptionComponent {
       }
     }
 
-<<<<<<< HEAD
-    if (this.nom=="" || !lett.includes(this.nom) ){
-      this.message="Entrer votre nom et prenom"
-=======
-    if (this.nom.trim() == "" || !this.nom.split('').every(c => lett.includes(c))){
-      this.message = "Entrer votre nom";
->>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
+    let nomValide = true;
+    for (let i = 0; i < this.nom.length; i++) {
+      if (!lett.includes(this.nom[i])) {
+        nomValide = false;
+      }
     }
 
-    else if (this.prenom.trim() == "" || !this.prenom.split('').every(c => lett.includes(c))){
-      this.message = "Entrer votre prenom";
+    let prenomValide = true;
+    for (let i = 0; i < this.prenom.length; i++) {
+      if (!lett.includes(this.prenom[i])) {
+        prenomValide = false;
+      }
     }
 
-    else if (this.email == '' || !this.email.includes('@')){
-      this.message = "Email invalide";
+    if (this.nom.trim() == "" || !nomValide) {
+      this.message = "Entrer un nom valide";
     }
+
+    else if (this.prenom.trim() == "" || !prenomValide) {
+      this.message = "Entrer un prenom valide";
+    }
+
+    else if (this.email == '' || !this.email.includes('@') || !this.email.includes('.')) {
+      this.message = "Email invalide. donner votre email sous forme xxxxxx@xxxx.xxxx";
+    }
+
     else if(motdepasse.length > 8 || !this.t1 || !this.t2){
       this.message ="le mots de passe doit etre contient des chiffres, des lettres et de taille ne dépasse pas 8 caractéres!!"
     }
+
     else if(this.motdepasse !== this.confirmMotdePasse){
       this.message = "Mot de passe non identique";
       return;
@@ -76,7 +87,11 @@ export class InscriptionComponent {
         }
 
         if(this.role == "Formateur"){
-          this.router.navigate(['/login']); 
+          this.router.navigate(['/formdashbord']); 
+        }
+
+        if(this.role == "Administrateur"){
+          this.router.navigate(['/admindashbord']); 
         }
       },
 
@@ -87,5 +102,4 @@ export class InscriptionComponent {
     });
     }
   }
-
 }

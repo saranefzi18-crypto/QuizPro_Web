@@ -20,11 +20,7 @@ public class categorie {
     @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
     private List<Quiz> quizs;
 
-    protected categorie() {
-        // Constructeur requis par JPA.
-    }
-
-    public categorie(String nom, String desc) {
+    public categorie(String nom, String description) {
         this.nom = nom;
         this.description = description;
     }

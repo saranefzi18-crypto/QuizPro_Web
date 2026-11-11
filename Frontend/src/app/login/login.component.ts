@@ -1,17 +1,9 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-=======
-
->>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
 import { AuthService } from '../service/auth.service';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Utilisateur } from '../models/utilisateur';
-<<<<<<< HEAD
 
-
-=======
->>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
 
 @Component({
   selector: 'app-login',
@@ -21,48 +13,32 @@ import { Utilisateur } from '../models/utilisateur';
 })
 export class LoginComponent {
   email = '';
-  password = '';
-  message ='';
-  user! : Utilisateur;
-  constructor(public auth : AuthService, public router: Router){}
+  motdepasse = '';
+  message = '';
+  user!: Utilisateur;
 
-  login() {
-    this.auth.login({ email : this.email , password: this.password }).subscribe({
-      next: res => {
-        console.log(res);
+  constructor(public auth: AuthService, public router: Router) {}
 
-<<<<<<< HEAD
-        this.user=res.user;
+  login() {this.auth.login({email: this.email, motdepasse: this.motdepasse}).subscribe({
+    next: res => {
+      console.log('Utilisateur connecté :', res);
 
-        if(this.user.role=="Commercial"){
-          this.router.navigate(['']);
-        }
+      this.user = res;
 
-        else if(this.user.role=="Formateur" ){
-          this.router.navigate(['/formdashbord'])
-        }
-
-        else if(this.user.role=="administrateur"){
-          this.router.navigate(['/admindashbord'])
-=======
-        if(this.user.role=="commercial" ){
-          this.router.navigate(['']);
-        }
-
-        else if(this.user.role=="formateur" ){
-          this.router.navigate(['/Formateurhome'])
-        }
-
-        else if(this.user.role=="administrateur"){
-          this.router.navigate(['/adminhome'])
->>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
-        }
-        
-      },
-      error: () => {
-        this.message = "Ce compte non trouvable";
+      if (res.role === "Commercial" || res.role === "commercial") {
+        this.router.navigate(['']);
       }
-
-    });
+      else if (res.role === "Formateur" || res.role === "formateur") {
+        this.router.navigate(['/formdashbord']);
+      }
+      else if (res.role === "administrateur") {
+        this.router.navigate(['/admindashbord']);
+      }
+    },
+    error: err => {
+      console.log('Erreur login :', err);
+      this.message = "Email ou mot de passe incorrect !";
+    }
+  });
   }
 }

@@ -1,6 +1,5 @@
 export class Utilisateur {
-
-    id!: number;
+  id!: number;
   nom: string;
   prenom: string;
   email: string;
@@ -15,7 +14,3 @@ export class Utilisateur {
     this.role = role;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> aed2d9bb2be538c5dd5d8e986b460e7e0c2c6445
