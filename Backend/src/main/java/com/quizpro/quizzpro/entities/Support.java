@@ -34,7 +34,6 @@ public class Support {
         this.quiz = quiz;
     }
 
-    // Getters et Setters
     public int getIdSupp() { return idSupp; }
     public void setIdSupp(int idSupp) { this.idSupp = idSupp; }
 

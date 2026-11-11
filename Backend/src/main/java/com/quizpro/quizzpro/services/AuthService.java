@@ -78,7 +78,7 @@ public class AuthService {
 		}
 
 		if (utl.getEmail() == null || utl.getMotdepasse() == null ) {
-			throw new RuntimeException("Email et mot de passe requis !");
+			throw new RuntimeException("Email et mot de passe invalides !");
 		}
 
 		Utilisateur u = utlrepo.findByEmail(utl.getEmail().trim());

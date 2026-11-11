@@ -25,10 +25,10 @@ export class LoginComponent {
 
       this.user = res;
 
-      if (res.role === "Commercial" || res.role === "commercial") {
+      if (res.role === "commercial") {
         this.router.navigate(['']);
       }
-      else if (res.role === "Formateur" || res.role === "formateur") {
+      else if (res.role === "formateur") {
         this.router.navigate(['/formdashbord']);
       }
       else if (res.role === "administrateur") {

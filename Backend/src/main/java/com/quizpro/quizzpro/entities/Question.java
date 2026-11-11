@@ -32,10 +32,6 @@ public class Question {
     @JoinColumn(name = "id_quiz")
     private Quiz quiz;
 
-    protected Question() {
-        // Constructeur requis par JPA.
-    }
-
     public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, LocalDate duree, Quiz quiz) {
         this.typeQuest = typeQuest;
         this.contenu = contenu;

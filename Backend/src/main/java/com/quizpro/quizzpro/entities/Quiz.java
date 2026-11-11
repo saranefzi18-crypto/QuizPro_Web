@@ -73,7 +73,7 @@ public class Quiz {
         this.formateur = formateur;
     }
 
-    // Getters et Setters
+  
     public int getIdQuiz() { return idQuiz; }
     public void setIdQuiz(int idQuiz) { this.idQuiz = idQuiz; }
 

@@ -24,8 +24,7 @@ public class categorie {
         this.nom = nom;
         this.description = description;
     }
-
-    // Getters et Setters
+    
     public int getIdCat() { return idCat; }
     public void setIdCat(int idCat) { this.idCat = idCat; }
 

@@ -15,9 +15,9 @@ import com.quizpro.quizzpro.services.AuthService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 	
-private AuthService utlServ;
-	
 	@Autowired
+	private AuthService utlServ;
+	
 	public AuthController(AuthService utlServ) {
 		this.utlServ=utlServ;
 	}

@@ -33,7 +33,6 @@ public class Reponse {
         this.question = question;
     }
 
-    // Getters et Setters
     public int getIdRep() { return idRep; }
     public void setIdRep(int idRep) { this.idRep = idRep; }
 
