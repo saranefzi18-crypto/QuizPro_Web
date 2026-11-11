@@ -26,12 +26,12 @@ export class LoginComponent {
       this.user = res;
 
       if (res.role === "Commercial" || res.role === "commercial") {
-        this.router.navigate(['']);
+        this.router.navigate(['/commercialdashbord']);
       }
       else if (res.role === "Formateur" || res.role === "formateur") {
         this.router.navigate(['/formdashbord']);
       }
-      else if (res.role === "administrateur") {
+      else if (res.role === "Administrateur" || res.role === "administrateur") {
         this.router.navigate(['/admindashbord']);
       }
     },
