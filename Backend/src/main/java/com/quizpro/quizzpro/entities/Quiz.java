@@ -9,7 +9,7 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idQuiz;
+    private Long idQuiz;
 
     @Column(length = 100)
     private String titre;
@@ -20,16 +20,22 @@ public class Quiz {
     @Column(length = 255)
     private String objectif;
 
+    @Column(length = 255)
     private int duree;
 
+    @Column
     private LocalDate dateLimite;
 
+    @Column
     private LocalDate dateCreation;
 
+    @Column
     private int nbrTentatives;
 
+    @Column
     private boolean melangeQust;
 
+    @Column
     private boolean melangeRep;
 
     @Column(length = 50)
@@ -38,6 +44,7 @@ public class Quiz {
     @Column(length = 20)
     private String statut;
 
+    @Column
     private float score;
 
     @ManyToOne
@@ -74,8 +81,8 @@ public class Quiz {
     }
 
   
-    public int getIdQuiz() { return idQuiz; }
-    public void setIdQuiz(int idQuiz) { this.idQuiz = idQuiz; }
+    public Long getIdQuiz() { return idQuiz; }
+    public void setIdQuiz(Long idQuiz) { this.idQuiz = idQuiz; }
 
     public String getTitre() { return titre; }
     public void setTitre(String titre) { this.titre = titre; }

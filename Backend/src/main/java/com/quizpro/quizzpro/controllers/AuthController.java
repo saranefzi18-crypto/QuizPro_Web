@@ -31,4 +31,5 @@ public class AuthController {
 	public Utilisateur login(@RequestBody Utilisateur utl){
 		return utlServ.login(utl);
 	}
+
 }
