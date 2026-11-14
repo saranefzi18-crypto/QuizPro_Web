@@ -37,7 +37,8 @@ export class LoginComponent {
     },
     error: err => {
       console.log('Erreur login :', err);
-      this.message = "Email ou mot de passe incorrect !";
+      // Le backend renvoie le message (ex : compte désactivé)
+      this.message = typeof err.error === 'string' ? err.error : "Email ou mot de passe incorrect !";
     }
   });
   }

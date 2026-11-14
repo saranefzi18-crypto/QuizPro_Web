@@ -20,3 +20,40 @@
     <tr><td colspan="3">Aucun thème</td></tr>
   }
 </table>
+
+<h2>Comptes utilisateurs</h2>
+
+@if (messageUtl) {
+  <p class="message">{{ messageUtl }}</p>
+}
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th>Email</th>
+    <th>Rôle</th>
+    <th>État</th>
+    <th>Action</th>
+  </tr>
+  @for (u of utilisateurs; track u.id) {
+    <tr>
+      <td>{{ u.nom }}</td>
+      <td>{{ u.prenom }}</td>
+      <td>{{ u.email }}</td>
+      <td>{{ u.role }}</td>
+      <td>
+        <span [class]="u.actif ? 'etat-actif' : 'etat-inactif'">{{ u.actif ? 'Actif' : 'Désactivé' }}</span>
+      </td>
+      <td>
+        @if (u.role !== 'administrateur') {
+          <button [class]="u.actif ? 'btn-supprimer' : 'btn-activer'" (click)="changerEtat(u)">
+            {{ u.actif ? 'Désactiver' : 'Activer' }}
+          </button>
+        }
+      </td>
+    </tr>
+  } @empty {
+    <tr><td colspan="6">Aucun utilisateur</td></tr>
+  }
+</table>

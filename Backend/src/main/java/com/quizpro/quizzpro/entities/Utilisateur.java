@@ -1,5 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -20,11 +21,18 @@ public class Utilisateur {
     @Column(unique = true, length = 100)
     private String email;
 
+    // WRITE_ONLY : on peut envoyer le mot de passe (inscription/login)
+    // mais il n'est jamais renvoyé dans les réponses JSON
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(length = 255) 
     private String motdepasse;
 
     @Column(length = 30)
     private String role;
+
+    // false = compte désactivé : l'utilisateur ne peut plus se connecter
+    @Column(nullable = false)
+    private boolean actif = true;
 
    public Utilisateur() {}
 
@@ -54,4 +62,7 @@ public class Utilisateur {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public boolean isActif() { return actif; }
+    public void setActif(boolean actif) { this.actif = actif; }
 }

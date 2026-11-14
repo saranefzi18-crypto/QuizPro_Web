@@ -92,6 +92,11 @@ public class AuthService {
 		if (!test) {
         	throw new RuntimeException("Email ou mot de passe incorrect !");
     	}
+
+		// Vérifié après le mot de passe : on ne révèle l'état du compte qu'à son propriétaire
+		if (!u.isActif()) {
+			throw new RuntimeException("Votre compte a été désactivé. Contactez l'administrateur.");
+		}
 		return u;
 	}
 
