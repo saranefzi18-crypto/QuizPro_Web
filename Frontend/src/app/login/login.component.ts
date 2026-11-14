@@ -24,14 +24,15 @@ export class LoginComponent {
       console.log('Utilisateur connecté :', res);
 
       this.user = res;
+      localStorage.setItem('user', JSON.stringify(res));
 
       if (res.role === "Commercial" || res.role === "commercial") {
-        this.router.navigate(['/commercialdashbord']);
+        this.router.navigate(['']);
       }
       else if (res.role === "Formateur" || res.role === "formateur") {
         this.router.navigate(['/formdashbord']);
       }
-      else if (res.role === "Administrateur" || res.role === "administrateur") {
+      else if (res.role === "administrateur" || res.role === "Administrateur") {
         this.router.navigate(['/admindashbord']);
       }
     },

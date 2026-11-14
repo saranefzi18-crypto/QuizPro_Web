@@ -52,6 +52,8 @@ public class Quiz {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
+    public Quiz() {}
+
     public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
                 LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
                 String typeQuiz, String statut, float score, categorie categorie, 
@@ -121,4 +123,6 @@ public class Quiz {
 
     public Formateur getFormateur() { return formateur; }
     public void setFormateur(Formateur formateur) { this.formateur = formateur; }
+
+    
 }

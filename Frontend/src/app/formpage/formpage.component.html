@@ -1,1 +1,63 @@
-<p>formpage works!</p>
+<header class="navbar">
+    <div class="logo">
+        <img src="logo-winshot.png" alt="Logo">
+        <span>Quizz<strong>Pro</strong></span>
+    </div>
+
+    <nav>
+        <a href="/" class="btn">Déconnexion</a>
+    </nav>
+</header>
+
+<main class="main-content">
+    <div class="page-header">
+        <div>
+            <h1>Gestion des Quiz</h1>
+            <p>Gérez, modifiez et suivez les quiz assignés à vos équipes commerciales.</p>
+        </div>
+        <a href="#" class="btn btn-primary btn-large">+ Créer un nouveau Quiz</a>
+    </div>
+
+    <div class="table-card">
+        <table class="quiz-table">
+            <thead>
+                <tr>
+                    <th>Titre & Description</th>
+                    <th>Type</th>
+                    <th>Durée</th>
+                    <th>Date Limite</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let q of quizzes">
+                    <td>
+                        <div class="quiz-title">{{ q.titre }}</div>
+                        <div class="quiz-desc">{{ q.description }}</div>
+                    </td>
+                    <td>{{ q.typeQuiz }}</td>
+                    <td>{{ q.duree }} min</td>
+                    <td>{{ q.dateLimite }}</td>
+                    <td>
+                        <span class="badge" [ngClass]="{
+                            'badge-active': q.statut === 'Actif',
+                            'badge-draft': q.statut === 'Brouillon'
+                        }">{{ q.statut }}</span>
+                    </td>
+                    <td class="actions">
+                        <button class="btn-action edit">Modifier</button>
+                        <button class="btn-action delete" (click)="supprimerQuiz(q.idQuiz)">Supprimer</button>
+                    </td>
+                </tr>
+
+                <tr *ngIf="quizzes.length === 0">
+                    <td colspan="6" style="text-align: center; color: #7f8c8d; padding: 30px;">
+                        Aucun quiz trouvé. Cliquez sur "+ Créer un nouveau Quiz" pour commencer !
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

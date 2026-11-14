@@ -83,7 +83,7 @@ export class InscriptionComponent {
         this.message = "Compte créé avec succès";
 
         if(this.role == "Commercial"){
-          this.router.navigate(['/commercialdashbord']);
+          this.router.navigate(['']);
         }
 
         if(this.role == "Formateur"){
