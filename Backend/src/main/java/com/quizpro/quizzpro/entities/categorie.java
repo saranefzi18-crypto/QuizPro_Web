@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "categorie")
-public class categorie {
+public class Categorie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,12 @@ public class categorie {
     @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
     private List<Quiz> quizs;
 
-    public categorie(String nom, String description) {
+    public Categorie(String nom, String description) {
         this.nom = nom;
         this.description = description;
     }
+
+    public Categorie(){}
     
     public int getIdCat() { return idCat; }
     public void setIdCat(int idCat) { this.idCat = idCat; }

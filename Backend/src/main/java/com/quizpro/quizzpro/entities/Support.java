@@ -26,6 +26,8 @@ public class Support {
     @JoinColumn(name = "id_quiz")
     private Quiz quiz;
 
+    public Support(){}
+
     public Support(String titre, String descr, String typeSuppt, LocalDate dateAjout, Quiz quiz) {
         this.titre = titre;
         this.descr = descr;

@@ -24,7 +24,8 @@ public class QuizService {
 
     @Transactional
     public List<Quiz> listQuizs(){
-        return quizrepo.findAll();
+        List<Quiz> liste =quizrepo.findAll();
+        return liste;
     }
 
     @Transactional
@@ -34,7 +35,7 @@ public class QuizService {
 
     @Transactional
     public Quiz updateStatus(Quiz quiz, Statut statut){
-        if(quizrepo.findById(quiz.getIdQuiz()) == null){
+        if(quizrepo.findById(quiz.getIdQuiz()).isEmpty()){
             throw new RuntimeException("Quiz introuvable");
         }
         quiz.setStatut(statut);

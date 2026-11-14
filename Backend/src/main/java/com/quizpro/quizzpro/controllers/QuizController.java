@@ -16,7 +16,7 @@ import com.quizpro.quizzpro.entities.Statut;
 import com.quizpro.quizzpro.services.QuizService;
 
 @RestController
-@RequestMapping("/api/auth/quiz")
+@RequestMapping("/api/quiz")
 @CrossOrigin(origins = "http://localhost:4200")
 public class QuizController {
 

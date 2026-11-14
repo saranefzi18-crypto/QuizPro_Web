@@ -32,6 +32,8 @@ public class Question {
     @JoinColumn(name = "id_quiz")
     private Quiz quiz;
 
+    public Question(){}
+
     public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, LocalDate duree, Quiz quiz) {
         this.typeQuest = typeQuest;
         this.contenu = contenu;
