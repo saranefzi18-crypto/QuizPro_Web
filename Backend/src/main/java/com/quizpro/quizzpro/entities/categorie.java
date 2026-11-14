@@ -26,15 +26,38 @@ public class categorie {
     }
 
     // Getters et Setters
-    public int getIdCat() { return idCat; }
-    public void setIdCat(int idCat) { this.idCat = idCat; }
+    public int getIdCat() {
+        return idCat;
+    }
 
-    public String getNom() { return nom; }
-    public void setNom(String nom) { this.nom = nom; }
+    public void setIdCat(int idCat) {
+        this.idCat = idCat;
+    }
 
-    public String getdescription() { return description; }
-    public void setDesc(String desc) { this.description= desc; }
+    public String getNom() {
+        return nom;
+    }
 
-    public List<Quiz> getQuizs() { return quizs; }
-    public void setQuizs(List<Quiz> quizs) { this.quizs = quizs; }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getdescription() {
+        return description;
+    }
+
+    public void setDesc(String desc) {
+        this.description = desc;
+    }
+
+    public List<Quiz> getQuizs() {
+        return quizs;
+    }
+
+    public void setQuizs(List<Quiz> quizs) {
+        this.quizs = quizs;
+    }
+
+    public categorie() {
+    }
 }

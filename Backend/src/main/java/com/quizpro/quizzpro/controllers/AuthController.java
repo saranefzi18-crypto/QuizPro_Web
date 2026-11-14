@@ -14,21 +14,20 @@ import com.quizpro.quizzpro.services.AuthService;
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
-	
-private AuthService utlServ;
-	
 	@Autowired
+	private AuthService utlServ;
+
 	public AuthController(AuthService utlServ) {
-		this.utlServ=utlServ;
+		this.utlServ = utlServ;
 	}
-	
+
 	@PostMapping("/inscription")
 	public Utilisateur inscrir(@RequestBody Utilisateur utl) {
 		return utlServ.inscrire(utl);
 	}
 
 	@PostMapping("/login")
-	public Utilisateur login(@RequestBody Utilisateur utl){
+	public Utilisateur login(@RequestBody Utilisateur utl) {
 		return utlServ.login(utl);
 	}
 }
