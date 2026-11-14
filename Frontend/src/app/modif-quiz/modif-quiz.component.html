@@ -1,0 +1,60 @@
+<h1>Modifier un quiz</h1>
+
+<form #f="ngForm" (ngSubmit)="enregistrer()">
+  <label>Titre :</label>
+  <input type="text" [(ngModel)]="quiz.titre" name="titre" required /><br />
+  <label>Description :</label>
+  <input
+    type="text"
+    [(ngModel)]="quiz.description"
+    name="description"
+    required
+  /><br />
+  <label>Objectif :</label>
+  <input
+    type="text"
+    [(ngModel)]="quiz.objectif"
+    name="objectif"
+    required
+  /><br />
+  <label>Durée :</label>
+  <input type="number" [(ngModel)]="quiz.duree" name="duree" required /><br />
+  <label>Date limite :</label>
+  <input
+    type="date"
+    [(ngModel)]="quiz.dateLimite"
+    name="dateLimite"
+    required
+  /><br />
+  <label>Nombre de tentatives :</label>
+  <input
+    type="number"
+    [(ngModel)]="quiz.nbrTentatives"
+    name="nbrTentatives"
+    required
+  /><br />
+  <label>Mélanger les questions :</label>
+  <input
+    type="checkbox"
+    [(ngModel)]="quiz.melangeQust"
+    name="melangeQust"
+  /><br />
+  <label>Mélanger les réponses :</label>
+  <input
+    type="checkbox"
+    [(ngModel)]="quiz.melangeRep"
+    name="melangeRep"
+  /><br />
+  <label>Type de quiz :</label>
+  <input
+    type="text"
+    [(ngModel)]="quiz.typeQuiz"
+    name="typeQuiz"
+    required
+  /><br />
+  <label>Catégorie :</label>
+  <select [(ngModel)]="quiz.idCat" name="idCat" required>
+    <option *ngFor="let c of cat" [value]="c.idCat">{{ c.nom }}</option></select
+  ><br />
+  <button type="submit">💾 Enregistrer</button>
+</form>
