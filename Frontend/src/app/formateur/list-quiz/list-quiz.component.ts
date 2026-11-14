@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { QuizService } from '../../services/quiz.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { QuizService } from '../../service/quiz.service';
 
 @Component({
   selector: 'app-list-quiz',
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class ListQuizComponent {
 
   quizList: any[] = [];
-  constructor(private quizService: QuizService) {
+  constructor(public quizService :QuizService) {
       this.listerQuiz(); // appel de methode 
     }
   

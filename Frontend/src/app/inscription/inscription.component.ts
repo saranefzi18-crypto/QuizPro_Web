@@ -87,7 +87,7 @@ export class InscriptionComponent {
         }
 
         if(this.role == "Formateur"){
-          this.router.navigate(['/formdashbord']); 
+          this.router.navigate(['/form/quiz']); 
         }
 
         if(this.role == "Administrateur"){

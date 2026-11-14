@@ -5,11 +5,11 @@ export class Question {
     contenu : string;
     image : string;
     document : string;
-    reponseCorrect : String;
-    duree : string;
+    reponseCorrect : string;
+    duree : number;
     quiz : { idQuiz : number};
 
-    constructor(typeQuest : string, contenu : string, image : string, document : string, reponseCorrect : String, duree : string, idQuiz : number){
+    constructor(typeQuest : string, contenu : string, image : string, document : string, reponseCorrect : string, duree : number, idQuiz : number){
         this.typeQuest=typeQuest;
         this.contenu=contenu;
         this.image=image;

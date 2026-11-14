@@ -29,7 +29,7 @@ export class LoginComponent {
         this.router.navigate(['/quiz']);
       }
       else if (res.role === "formateur") {
-        this.router.navigate(['/formdashbord']);
+        this.router.navigate(['/form/quiz']);
       }
       else if (res.role === "administrateur") {
         this.router.navigate(['/admindashbord']);

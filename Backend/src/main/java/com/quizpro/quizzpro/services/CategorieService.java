@@ -35,7 +35,7 @@ public class CategorieService {
             throw new RuntimeException("Catégorie introuvable");
         }
 
-        if(quizRepo.exexistsByCategorie(id)){
+        if(quizRepo.existsByCategorieIdCat(id)){
             throw new RuntimeException("Impossible : ce thème contient encore des quiz");
         }
 

@@ -1,7 +1,7 @@
 <div>
     <h2>Creer un quiz</h2>
     <h4>Informations génerales</h4>
-    
+
     <div>
         <label> Titre</label>
         <input type="text" [(ngModel)]="quiz.titre" name="titre">
@@ -45,32 +45,8 @@
 
     <div>
         <h4>Questions du Quiz</h4>
-        <button type="button" (click)="ajouterQuestion()">
-        + Ajouter une question
+        <button type="button" (click)="enregistrerQuiz()">
+            Créer le Quiz et gérer les questions
         </button>
     </div>
-
-    <div *ngFor="let q of questions; let i=index">
-        <div>
-            <h5>Question {{ i + 1 }}</h5>
-            <button type="button" (click)="supprimerQuestion(i)">
-                Supprimer
-            </button>
-        </div>
-        <label>Type de question</label>
-        <select [(ngModel)]="q.typeQuest" name="type{{i}}">
-        <option value="QCM">QCM</option>
-        <option value="Vrai/Faux">Vrai / Faux</option>
-        <option value="Question ouverte">Question ouverte</option>
-        </select>
-
-        <label>Contenu</label>
-        <textarea  [(ngModel)]="q.contenu" name="contenu{{i}}"> </textarea>
-
-        <label class="mt-2">Durée</label>
-        <input type="number" [(ngModel)]="q.duree" name="duree{{i}}">
-    </div>
-    <button type="button" (click)="enregistrerQuiz()">
-        Enregistrer le Quiz
-    </button>
 </div>

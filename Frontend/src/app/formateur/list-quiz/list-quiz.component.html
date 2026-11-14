@@ -19,8 +19,6 @@
       <td>{{ q.statut }}</td>
       <td>
         <button *ngIf="q.statut !== 'Publiee'" [routerLink]="['form/quiz', q.id]" (click)="publierQuiz(q.id)"></button>
-      </td>
-      <td>
         <a [routerLink]="['/form/quiz', q.idQuiz]">Détails</a>
       </td>
     </tr>

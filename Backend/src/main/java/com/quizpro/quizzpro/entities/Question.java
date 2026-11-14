@@ -9,7 +9,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idQuest;
+    private Long idQuest;
 
     @Column(length = 50)
     private String typeQuest;
@@ -45,8 +45,8 @@ public class Question {
     }
 
   
-    public int getIdQuest() { return idQuest; }
-    public void setIdQuest(int idQuest) { this.idQuest = idQuest; }
+    public Long getIdQuest() { return idQuest; }
+    public void setIdQuest(Long idQuest) { this.idQuest = idQuest; }
 
     public String getTypeQuest() { return typeQuest; }
     public void setTypeQuest(String typeQuest) { this.typeQuest = typeQuest; }
