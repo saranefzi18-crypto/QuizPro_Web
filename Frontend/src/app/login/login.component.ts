@@ -26,7 +26,7 @@ export class LoginComponent {
       this.user = res;
 
       if (res.role === "commercial") {
-        this.router.navigate(['']);
+        this.router.navigate(['/quiz']);
       }
       else if (res.role === "formateur") {
         this.router.navigate(['/formdashbord']);

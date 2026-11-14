@@ -1,5 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -18,10 +19,18 @@ public class Categorie {
     @Column(length = 255)
     private String description;
 
-    @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+    @JsonIgnore
+    // Pas de cascade : supprimer un thème ne doit jamais supprimer ses quiz
+    @OneToMany(mappedBy = "categorie")
     private List<Quiz> quizs;
 
+<<<<<<< HEAD
     public Categorie(String nom, String description) {
+=======
+    public categorie() {}
+
+    public categorie(String nom, String description) {
+>>>>>>> 8238a84f15f69787a9a291d2107702f61c21c8d8
         this.nom = nom;
         this.description = description;
     }
@@ -34,8 +43,8 @@ public class Categorie {
     public String getNom() { return nom; }
     public void setNom(String nom) { this.nom = nom; }
 
-    public String getdescription() { return description; }
-    public void setDesc(String desc) { this.description= desc; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
     public List<Quiz> getQuizs() { return quizs; }
     public void setQuizs(List<Quiz> quizs) { this.quizs = quizs; }
