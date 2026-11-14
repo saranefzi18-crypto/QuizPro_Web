@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h2>Liste des Quiz</h2>
+
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let q of quizList">
+      <td>{{ q.id }}</td>
+      <td>{{ q.titre }}</td>
+      <td>{{ q.description }}</td>
+      <td>{{ q.statut }}</td>
+      <td>
+        <button *ngIf="q.statut !== 'PUBLIE'" 
+                [routerLink]="['/quiz', q.id]"
+                (click)="publierQuiz(q.id)">
+       
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

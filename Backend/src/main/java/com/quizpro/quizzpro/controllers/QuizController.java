@@ -23,10 +23,15 @@ public class QuizController {
     @Autowired
     private QuizService quizServ;
 
+    @GetMapping
+    public List<Quiz> getAllQuiz() {
+        return quizServ.listQuizs(); 
+    }
+
     @PostMapping("/create")
     public Quiz createQ(@RequestBody Quiz q){
         return quizServ.createQuiz(q);
-    } 
+    }
 
     @GetMapping("/list")
     public List<Quiz> listQuiz(){
@@ -42,6 +47,4 @@ public class QuizController {
     public Quiz modQuiz(@RequestBody Quiz quiz, @RequestBody Statut status){
         return quizServ.updateStatus(quiz, status);
     }
-
-
 }
