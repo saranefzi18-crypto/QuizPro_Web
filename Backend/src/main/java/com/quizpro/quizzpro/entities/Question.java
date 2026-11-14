@@ -44,7 +44,7 @@ public class Question {
         this.quiz = quiz;
     }
 
-    // Getters et Setters
+  
     public int getIdQuest() { return idQuest; }
     public void setIdQuest(int idQuest) { this.idQuest = idQuest; }
 

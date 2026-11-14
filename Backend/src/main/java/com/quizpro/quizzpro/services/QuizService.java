@@ -17,6 +17,10 @@ public class QuizService {
     @Autowired
     private QuizRepository quizrepo;
 
+    public QuizService(QuizRepository quizrepo){
+        this.quizrepo=quizrepo;
+    }
+
     @Transactional
 	public Quiz createQuiz(Quiz q){
 		return quizrepo.save(q);

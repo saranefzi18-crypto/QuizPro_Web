@@ -10,5 +10,6 @@ import com.quizpro.quizzpro.entities.Statut;
 public interface QuizRepository extends JpaRepository<Quiz, Long>{
     
     public List<Quiz> findByStatut(Statut statut);
+    public boolean exexistsByCategorie(Long id);
 
 }

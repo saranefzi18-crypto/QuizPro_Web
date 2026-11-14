@@ -11,7 +11,7 @@ public class Categorie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idCat;
+    private Long idCat;
 
     @Column(length = 100)
     private String nom;
@@ -20,25 +20,18 @@ public class Categorie {
     private String description;
 
     @JsonIgnore
-    // Pas de cascade : supprimer un thème ne doit jamais supprimer ses quiz
     @OneToMany(mappedBy = "categorie")
     private List<Quiz> quizs;
 
-<<<<<<< HEAD
-    public Categorie(String nom, String description) {
-=======
-    public categorie() {}
+    public Categorie() {}
 
-    public categorie(String nom, String description) {
->>>>>>> 8238a84f15f69787a9a291d2107702f61c21c8d8
+    public Categorie(String nom, String description) {
         this.nom = nom;
         this.description = description;
     }
-
-    public Categorie(){}
     
-    public int getIdCat() { return idCat; }
-    public void setIdCat(int idCat) { this.idCat = idCat; }
+    public Long getIdCat() { return idCat; }
+    public void setIdCat(Long idCat) { this.idCat = idCat; }
 
     public String getNom() { return nom; }
     public void setNom(String nom) { this.nom = nom; }

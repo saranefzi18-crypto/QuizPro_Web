@@ -20,6 +20,11 @@ public class AuthService {
 	@Autowired
     private BCryptPasswordEncoder mopcryp;
 
+	public AuthService(UtilisateurRepository utlrepo, BCryptPasswordEncoder mopcryp){
+		this.utlrepo=utlrepo;
+		this.mopcryp=mopcryp;
+	}
+
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
 		

@@ -23,14 +23,8 @@ public class QuizController {
     @Autowired
     private QuizService quizServ;
 
-    @GetMapping
-    public List<Quiz> getAllQuiz() {
-        return quizServ.listQuizs(); 
-    }
-
-    @PostMapping("/create")
-    public Quiz createQ(@RequestBody Quiz q){
-        return quizServ.createQuiz(q);
+    public QuizController(QuizService quizServ){
+        this.quizServ=quizServ;
     }
 
     @GetMapping("/list")
@@ -41,6 +35,11 @@ public class QuizController {
     @GetMapping("/listAccept")
     public List<Quiz> listQuizAcc(){
         return quizServ.QuizAcceptes();
+    }
+
+    @PostMapping("/create")
+    public Quiz createQ(@RequestBody Quiz q){
+        return quizServ.createQuiz(q);
     }
 
     @PatchMapping("/modifStat")
