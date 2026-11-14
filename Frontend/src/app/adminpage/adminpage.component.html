@@ -1,1 +1,22 @@
-<p>adminpage works!</p>
+<h2>Thèmes (catégories)</h2>
+
+@if (message) {
+  <p class="message">{{ message }}</p>
+}
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  @for (cat of categories; track cat.idCat) {
+    <tr>
+      <td>{{ cat.nom }}</td>
+      <td>{{ cat.description }}</td>
+      <td><button class="btn-supprimer" (click)="supprimer(cat)">Supprimer</button></td>
+    </tr>
+  } @empty {
+    <tr><td colspan="3">Aucun thème</td></tr>
+  }
+</table>
