@@ -1,1 +1,42 @@
-<p>formpage works!</p>
+
+<div>
+
+  <h2>Liste des quiz</h2>
+
+  <a routerLink="/quiz/create">
+    + Créer un quiz
+  </a>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Durée</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let q of listQuiz">
+        <td>{{ q.titre }}</td>
+        <td>{{ q.description }}</td>
+        <td>{{ q.duree }} min</td>
+        <td>{{ q.statut }}</td>
+        <td>
+          <button>
+            Détails
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <p *ngIf="listQuiz.length === 0">
+    Aucun quiz disponible.
+  </p>
+
+</div>
