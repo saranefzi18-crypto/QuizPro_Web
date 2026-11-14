@@ -42,7 +42,7 @@ public class Quiz {
     private String typeQuiz;
 
     @Column(length = 20)
-    private String statut;
+    private Statut statut;
 
     @Column
     private float score;
@@ -63,7 +63,7 @@ public class Quiz {
 
     public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
                 LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
-                String typeQuiz, String statut, float score, categorie categorie, 
+                String typeQuiz, Statut statut, float score, categorie categorie, 
                 Administrateur administrateur, Formateur formateur) {
         this.titre = titre;
         this.description = description;
@@ -116,8 +116,8 @@ public class Quiz {
     public String getTypeQuiz() { return typeQuiz; }
     public void setTypeQuiz(String typeQuiz) { this.typeQuiz = typeQuiz; }
 
-    public String getStatut() { return statut; }
-    public void setStatut(String statut) { this.statut = statut; }
+    public Statut getStatut() { return statut; }
+    public void setStatut(Statut statut) { this.statut = statut; }
 
     public float getScore() { return score; }
     public void setScore(float score) { this.score = score; } 

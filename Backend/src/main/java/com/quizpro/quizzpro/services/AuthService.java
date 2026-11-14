@@ -9,7 +9,6 @@ import com.quizpro.quizzpro.entities.Administrateur;
 import com.quizpro.quizzpro.entities.Commercial;
 import com.quizpro.quizzpro.entities.Formateur;
 import com.quizpro.quizzpro.entities.Utilisateur;
-import com.quizpro.quizzpro.repositories.QuizRepository;
 import com.quizpro.quizzpro.repositories.UtilisateurRepository;
 
 @Service

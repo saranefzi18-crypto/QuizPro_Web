@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.quizpro.quizzpro.entities.Quiz;
+import com.quizpro.quizzpro.entities.Statut;
 import com.quizpro.quizzpro.repositories.QuizRepository;
 
 
@@ -22,25 +23,22 @@ public class QuizService {
 	}
 
     @Transactional
-    public List<Quiz> QuizAcceptes(){
-        return quizrepo.findByStatut("Acceptee");
-    }
-
-    @Transactional
-    public List<Quiz> Quiz(){
+    public List<Quiz> listQuizs(){
         return quizrepo.findAll();
     }
 
     @Transactional
-    public Quiz updateStatus(Quiz quiz, String statut){
+    public List<Quiz> QuizAcceptes(){
+        return quizrepo.findByStatut(Statut.Acceptée);
+    }
+
+    @Transactional
+    public Quiz updateStatus(Quiz quiz, Statut statut){
         if(quizrepo.findById(quiz.getIdQuiz()) == null){
             throw new RuntimeException("Quiz introuvable");
         }
-        else{
-            quiz.setStatut(statut);
-        }
+        quiz.setStatut(statut);
         return quizrepo.save(quiz);
-
     }
 
     
