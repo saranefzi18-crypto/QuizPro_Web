@@ -16,14 +16,14 @@ export const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'login', component: LoginComponent},
 
-<<<<<<< HEAD
-  {path: 'admindashbord', component : AdminpageComponent},
-  {path: 'formdashbord', component : FormpageComponent},
+
+  {path: 'admindashbord', component : AccueilComponent},
+  //{path: 'formdashbord', component : FormpageCom},
   { path: 'quiz/modifier/:id', component: ModifQuizComponent },
   {path:'ajoutcategories' , component: AjoutCategoriesComponent},
-  {path:'listcategories' , component: ListCategoriesComponent}
+  {path:'listcategories' , component: ListCategoriesComponent},
 
-=======
+
   /*{path: 'admindashbord', component : AdminpageComponent},*/
 
   {path:'form/quiz', component:ListQuizComponent},
@@ -32,5 +32,4 @@ export const routes: Routes = [
   { path:  'quiz//modfQuiz/:idQuiz' , component: ModifQuizComponent},
 
   
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
 ];

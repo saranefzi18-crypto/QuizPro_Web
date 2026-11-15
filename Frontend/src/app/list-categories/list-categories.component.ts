@@ -21,7 +21,7 @@ export class ListCategoriesComponent implements OnInit {
   }
 
   chargerCategories(): void {
-    this.categorieService.getAllCat().subscribe({
+    this.categorieService.getAll().subscribe({
       next: (data) => {
         this.categories = data;
         console.log("Categories récupérées avec succès :", data);

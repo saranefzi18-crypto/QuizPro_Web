@@ -29,11 +29,11 @@ export class LoginComponent {
         this.router.navigate(['/quiz']);
       }
       else if (res.role === "formateur") {
-<<<<<<< HEAD
-        this.router.navigate(['/ajoutcategories']);
-=======
-        this.router.navigate(['/form/quiz']);
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
+
+        this.router.navigate(['/listcategories']);
+//ajoutcategories
+        //this.router.navigate(['/form/quiz']);
+
       }
       else if (res.role === "administrateur") {
         this.router.navigate(['/listcategories']);
