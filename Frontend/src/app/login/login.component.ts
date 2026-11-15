@@ -29,10 +29,10 @@ export class LoginComponent {
         this.router.navigate(['']);
       }
       else if (res.role === "formateur") {
-        this.router.navigate(['/formdashbord']);
+        this.router.navigate(['/ajoutcategories']);
       }
       else if (res.role === "administrateur") {
-        this.router.navigate(['/admindashbord']);
+        this.router.navigate(['/listcategories']);
       }
     },
     error: err => {

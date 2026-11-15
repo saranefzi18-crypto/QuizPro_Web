@@ -87,11 +87,11 @@ export class InscriptionComponent {
         }
 
         if(this.role == "Formateur"){
-          this.router.navigate(['/formdashbord']); 
+          this.router.navigate(['/ajoutcategories']); 
         }
 
         if(this.role == "Administrateur"){
-          this.router.navigate(['/admindashbord']); 
+          this.router.navigate(['/listcategories']); 
         }
       },
 
