@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Categorie } from '../models/categorie';
 import { CategorieService } from '../service/categorie.service';
+import { Statut } from '../models/statut';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { CategorieService } from '../service/categorie.service';
   styleUrl: './modif-quiz.component.css'
 })
 export class ModifQuizComponent {
-  quiz : Quiz = new Quiz('','','',0,'',new Date(),0,false,false,'','',0);
+  quiz: Quiz = new Quiz('', '', '', 0, '', '', 0,false, false, '',Statut.En_Attent, 0, 0, 0, 0);
   cat : Categorie[]=[];
 
   constructor(public quizServ :QuizService, public catServ :CategorieService, public router :Router, public route : ActivatedRoute){
@@ -37,12 +38,12 @@ export class ModifQuizComponent {
             this.quiz.typeQuiz=data.typeQuiz;
             this.quiz.statut=data.statut;
             this.quiz.score=data.score;
-            this.quiz.idCat=data.categorie.idCat;
+            this.quiz.categorie = {idCat: data.categorie.idCat};
           },
           error : err => console.error(err)
         })
       }
-      this.catServ.getAllCat().subscribe(data =>{
+      this.catServ.getAll().subscribe(data =>{
           this.cat=data;
       })
     })

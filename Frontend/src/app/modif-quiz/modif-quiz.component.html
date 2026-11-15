@@ -53,8 +53,8 @@
     required
   /><br />
   <label>Catégorie :</label>
-  <select [(ngModel)]="quiz.idCat" name="idCat" required>
+  <select [(ngModel)]="quiz.categorie" name="idCat" required>
     <option *ngFor="let c of cat" [value]="c.idCat">{{ c.nom }}</option></select
   ><br />
-  <button type="submit">💾 Enregistrer</button>
+  <button type="submit">Enregistrer</button>
 </form>

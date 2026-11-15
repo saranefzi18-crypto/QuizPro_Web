@@ -26,10 +26,14 @@ export class LoginComponent {
       this.user = res;
 
       if (res.role === "commercial") {
-        this.router.navigate(['']);
+        this.router.navigate(['/quiz']);
       }
       else if (res.role === "formateur") {
+<<<<<<< HEAD
         this.router.navigate(['/ajoutcategories']);
+=======
+        this.router.navigate(['/form/quiz']);
+>>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
       }
       else if (res.role === "administrateur") {
         this.router.navigate(['/listcategories']);

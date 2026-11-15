@@ -25,6 +25,8 @@ public class Reponse {
     @JoinColumn(name = "id_quest")
     private Question question;
 
+    public Reponse(){}
+
     public Reponse(String contenu, String explication, float pointObtenu, LocalDate dateR, Question question) {
         this.contenu = contenu;
         this.explication = explication;

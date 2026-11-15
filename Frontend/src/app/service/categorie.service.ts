@@ -6,18 +6,18 @@ import { Categorie } from '../models/categorie';
   providedIn: 'root'
 })
 export class CategorieService {
+  private baseUrl = 'http://localhost:8081/api/cat';
 
-  private baseUrl = 'http://localhost:8081/api';
+  constructor(private http: HttpClient) {}
 
-  constructor(public http: HttpClient) { }
-
-  getAllCat() {
-    return this.http.get<Categorie[]>(this.baseUrl + "/categorie");
+  getAll() {
+    return this.http.get<any[]>(this.baseUrl);
   }
 
   getCat(idCat: number) {
-    return this.http.get<Categorie>(this.baseUrl + "/categorie/" + idCat);
+    return this.http.get<Categorie>(this.baseUrl + idCat);
   }
+<<<<<<< HEAD
   ajouterCategorie(categorie: Categorie) {
     return this.http.post<Categorie>(this.baseUrl + "/categorie/add", categorie);
   }
@@ -32,3 +32,11 @@ export class CategorieService {
     return this.http.put<Categorie>(this.baseUrl + "/categorie/refuser/" + idCat, {});
   }
 }
+=======
+
+  supprimer(id: number) {
+    return this.http.delete(this.baseUrl + '/del/' + id);
+  }
+}
+
+>>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9

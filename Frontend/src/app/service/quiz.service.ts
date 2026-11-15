@@ -7,15 +7,28 @@ import { Quiz } from '../models/quiz';
 })
 export class QuizService {
 
-  private baseUrl = 'http://localhost:8081/api';
+  private baseUrl = 'http://localhost:8081/api/quiz';
 
   constructor(public http: HttpClient) { }
 
-  getQuiz(id: number) {
-    return this.http.get<any>(this.baseUrl + "/quiz/" + id);
+  getQuizList(){
+    return this.http.get<Quiz[]>(this.baseUrl + "/list");
   }
 
-  updateQuiz(id: number, quiz: Quiz) {
-    return this.http.put<any>(this.baseUrl + "/quiz/" + id, quiz);
+  getQuiz(idQuiz : number){
+    return this.http.get<Quiz>(this.baseUrl + idQuiz);
   }
+  creatQuiz(data: any){
+    return this.http.post<Quiz>(this.baseUrl+ "/create" ,data);
+  }
+
+  publierQuiz(idQuiz: number){
+    return this.http.get<Quiz>(this.baseUrl + "/pubier/"+ idQuiz);
+  }
+
+  updateQuiz(idQuiz: number, quiz: Quiz) {
+    return this.http.put<any>(this.baseUrl + "/modfQuiz/" + idQuiz, quiz);
+  }
+
 }
+

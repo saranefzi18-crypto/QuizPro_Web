@@ -20,22 +20,27 @@ public class AuthService {
 	@Autowired
     private BCryptPasswordEncoder mopcryp;
 
+	public AuthService(UtilisateurRepository utlrepo, BCryptPasswordEncoder mopcryp){
+		this.utlrepo=utlrepo;
+		this.mopcryp=mopcryp;
+	}
+
 	@Transactional
 	public Utilisateur inscrire(Utilisateur utl) {
 		
-		if(utl.getNom() == null || !utl.getNom().matches("^[a-zA-Z]+$")){
+		if(utl.getNom() == null || !utl.getNom().matches("[a-zA-Z ]+")){
 			throw new RuntimeException("Le nom doit contenir uniquement des lettres ");
 		}
 
-		if(utl.getPrenom() == null || !utl.getPrenom().matches("^[a-zA-Z]+$")){
+		if(utl.getPrenom() == null || !utl.getPrenom().matches("[a-zA-Z ]+")){
 			throw new RuntimeException("Le prenom doit contenir uniquement des lettres ");
 		}
 
-		if (utl.getEmail() == null || !utl.getEmail().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+$")) {
+		if (utl.getEmail() == null || !utl.getEmail().matches("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+")) {
         	throw new RuntimeException("Format d'email invalide");
     	}
 
-		if(utl.getMotdepasse() == null || !utl.getMotdepasse().matches("^[A-Za-z0-9]+$") || utl.getMotdepasse().length()> 8){
+		if(utl.getMotdepasse() == null || !utl.getMotdepasse().matches("[A-Za-z0-9]+") || utl.getMotdepasse().length()< 8){
 			throw new RuntimeException("Mot de passe invalide");
 		}
 
@@ -86,7 +91,7 @@ public class AuthService {
 		if (u == null) {
         	throw new RuntimeException("Email ou mot de passe incorrect !");
     	}
-
+	
 		boolean test= mopcryp.matches(utl.getMotdepasse(), u.getMotdepasse());
 
 		if (!test) {
@@ -94,4 +99,5 @@ public class AuthService {
     	}
 		return u;
 	}
+
 }

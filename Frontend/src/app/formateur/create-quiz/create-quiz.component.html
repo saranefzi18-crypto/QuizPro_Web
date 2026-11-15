@@ -1,0 +1,52 @@
+<div>
+    <h2>Creer un quiz</h2>
+    <h4>Informations génerales</h4>
+
+    <div>
+        <label> Titre</label>
+        <input type="text" [(ngModel)]="quiz.titre" name="titre">
+    </div>
+
+    <div>
+        <label>Description</label>
+        <textarea class="form-control" [(ngModel)]="quiz.description" name="description"></textarea>
+    </div>
+
+    <div>
+        <label>Objectif</label>
+        <input type="text" [(ngModel)]="quiz.objectif" name="objectif">
+    </div>
+
+    <div >
+        <label>Durée en minutes</label>
+        <input type="number" class="form-control" [(ngModel)]="quiz.duree" name="duree">
+    </div>
+
+    <div>
+        <label>Date limite</label>
+        <input type="date" [(ngModel)]="quiz.dateLimite" name="dateLimite">
+    </div>
+
+    <div>
+        <label>Nombre de tentatives</label>
+        <input type="number"  [(ngModel)]="quiz.nbrTentatives" name="tentatives">
+    </div>
+
+    <div>
+        <label>Catégorie</label>
+        <select [(ngModel)]="quiz.idCat" name="categorie">
+        <option *ngFor="let c of catList" [ngValue]="c.idCat">
+            {{ c.nom }}
+        </option>
+        </select>
+    </div>
+
+    <hr>
+
+    <div>
+        <h4>Questions du Quiz</h4>
+        <button type="button" (click)="enregistrerQuiz()">
+            Créer le Quiz et gérer les questions
+        </button>
+    </div>
+</div>

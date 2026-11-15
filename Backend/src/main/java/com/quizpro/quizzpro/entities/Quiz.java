@@ -9,7 +9,7 @@ public class Quiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idQuiz;
+    private Long idQuiz;
 
     @Column(length = 100)
     private String titre;
@@ -20,29 +20,36 @@ public class Quiz {
     @Column(length = 255)
     private String objectif;
 
+    @Column(length = 255)
     private int duree;
 
+    @Column
     private LocalDate dateLimite;
 
+    @Column
     private LocalDate dateCreation;
 
+    @Column
     private int nbrTentatives;
 
+    @Column
     private boolean melangeQust;
 
+    @Column
     private boolean melangeRep;
 
     @Column(length = 50)
     private String typeQuiz;
 
     @Column(length = 20)
-    private String statut;
+    private Statut statut;
 
+    @Column
     private float score;
 
     @ManyToOne
     @JoinColumn(name = "id_cat")
-    private categorie categorie;
+    private Categorie categorie;
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
@@ -52,10 +59,10 @@ public class Quiz {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
-    public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite,
-            LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep,
-            String typeQuiz, String statut, float score, categorie categorie,
-            Administrateur administrateur, Formateur formateur) {
+    public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
+                LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
+                String typeQuiz, Statut statut, float score, Categorie categorie, 
+                Administrateur administrateur, Formateur formateur) {
         this.titre = titre;
         this.description = description;
         this.objectif = objectif;
@@ -72,7 +79,9 @@ public class Quiz {
         this.administrateur = administrateur;
         this.formateur = formateur;
     }
+    public Quiz(){}
 
+<<<<<<< HEAD
 
   
     public int getIdQuiz() {
@@ -84,6 +93,10 @@ public class Quiz {
     public Quiz() {
     }
 
+=======
+    public Long getIdQuiz() { return idQuiz; }
+    public void setIdQuiz(Long idQuiz) { this.idQuiz = idQuiz; }
+>>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
 
     public String getTitre() {
         return titre;
@@ -128,7 +141,6 @@ public class Quiz {
     public LocalDate getDateCreation() {
         return dateCreation;
     }
-
     public void setDateCreation(LocalDate dateCreation) {
         this.dateCreation = dateCreation;
     }
@@ -164,12 +176,11 @@ public class Quiz {
     public void setTypeQuiz(String typeQuiz) {
         this.typeQuiz = typeQuiz;
     }
-
-    public String getStatut() {
+    public Statut getStatut() {
         return statut;
     }
 
-    public void setStatut(String statut) {
+    public void setStatut(Statut statut) {
         this.statut = statut;
     }
 
@@ -181,11 +192,11 @@ public class Quiz {
         this.score = score;
     }
 
-    public categorie getCategorie() {
+    public Categorie getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(categorie categorie) {
+    public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
 

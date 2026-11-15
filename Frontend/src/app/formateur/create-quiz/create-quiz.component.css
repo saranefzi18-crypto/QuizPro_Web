@@ -1,0 +1,85 @@
+
+:host > div {
+  max-width: 750px;
+  margin: 50px auto;
+  padding: 35px;
+  background: white;
+  border-radius: 12px;
+  border-top: 5px solid var(--bleu);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--bleu-nuit);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h4 {
+  color: var(--bleu-fonce);
+  margin-bottom: 20px;
+}
+
+:host > div > div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: var(--bleu-nuit);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--bleu-clair);
+  border-radius: 7px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--bleu-fonce);
+  box-shadow: 0 0 5px rgba(21, 147, 196, 0.2);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+hr {
+  border: 1px solid var(--fond-clair);
+  margin: 25px 0;
+}
+
+button {
+  display: block;
+  margin: 20px auto 0;
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--orange-fonce);
+}
+
+@media (max-width: 700px) {
+  :host > div {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+}
