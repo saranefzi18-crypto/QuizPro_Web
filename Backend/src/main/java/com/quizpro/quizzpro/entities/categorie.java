@@ -29,16 +29,22 @@ public class Categorie {
         this.nom = nom;
         this.description = description;
     }
-    
-    public Long getIdCat() { return idCat; }
-    public void setIdCat(Long idCat) { this.idCat = idCat; }
+    public Long getIdCat() {
+        return idCat;
+    }
 
-    public String getNom() { return nom; }
-    public void setNom(String nom) { this.nom = nom; }
+    public void setIdCat(Long idCat) {
+        this.idCat = idCat;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
-
-    public List<Quiz> getQuizs() { return quizs; }
-    public void setQuizs(List<Quiz> quizs) { this.quizs = quizs; }
 }

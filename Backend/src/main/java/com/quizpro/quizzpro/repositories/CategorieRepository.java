@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.quizpro.quizzpro.entities.Categorie;
 
 public interface CategorieRepository extends JpaRepository<Categorie, Long> {
-
+    public Categorie findByIdCat(Long id);
 }
+

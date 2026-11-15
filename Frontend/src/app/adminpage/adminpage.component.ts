@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { CategorieService } from '../service/categorie.service';
+/*import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-adminpage',
@@ -7,7 +6,7 @@ import { CategorieService } from '../service/categorie.service';
   templateUrl: './adminpage.component.html',
   styleUrl: './adminpage.component.css'
 })
-export class AdminpageComponent implements OnInit {
+export class AdminpageComponent implements OnInit{
   categories: any[] = [];
   message = '';
 
@@ -32,4 +31,4 @@ export class AdminpageComponent implements OnInit {
       error: (err) => this.message = err.error || 'Erreur lors de la suppression'
     });
   }
-}
+}*/

@@ -8,6 +8,6 @@ import com.quizpro.quizzpro.entities.Question;
 
 public interface QuestionRepository extends JpaRepository<Question, Long>{
 
-    List<Question> findByQuiz(Long idQuiz);
+    List<Question> findByQuiz_IdQuiz(Long idQuiz);
     Question findByIdQuest(Long idQuest);
 }

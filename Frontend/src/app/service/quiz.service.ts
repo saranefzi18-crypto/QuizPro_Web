@@ -15,7 +15,10 @@ export class QuizService {
     return this.http.get<Quiz[]>(this.baseUrl + "/list");
   }
 
-  creerQuiz(data: any){
+  getQuiz(idQuiz : number){
+    return this.http.get<Quiz>(this.baseUrl + idQuiz);
+  }
+  creatQuiz(data: any){
     return this.http.post<Quiz>(this.baseUrl+ "/create" ,data);
   }
 
@@ -23,4 +26,9 @@ export class QuizService {
     return this.http.get<Quiz>(this.baseUrl + "/pubier/"+ idQuiz);
   }
 
+  updateQuiz(idQuiz: number, quiz: Quiz) {
+    return this.http.put<any>(this.baseUrl + "/modfQuiz/" + idQuiz, quiz);
+  }
+
 }
+

@@ -1,18 +1,10 @@
 package com.quizpro.quizzpro.controllers;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.quizpro.quizzpro.entities.Quiz;
 import com.quizpro.quizzpro.entities.Statut;
+import org.springframework.web.bind.annotation.*;
 import com.quizpro.quizzpro.services.QuizService;
 
 @RestController
@@ -46,4 +38,15 @@ public class QuizController {
     public Quiz modQuiz(@RequestBody Quiz quiz, @RequestBody Statut status){
         return quizServ.updateStatus(quiz, status);
     }
+
+    @GetMapping("/{idQuiz}")
+    public Quiz getQuiz(@PathVariable Long idQuiz) {
+        return quizServ.getQuiz(idQuiz);
+    }
+
+    @PutMapping("modfQuiz/{idQuiz}")
+    public Quiz modifierQuiz(@PathVariable Long idQuiz, @RequestBody Quiz quiz) {
+        return quizServ.modifierQuiz(idQuiz, quiz);
+    }
+
 }

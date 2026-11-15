@@ -79,54 +79,126 @@ public class Quiz {
         this.administrateur = administrateur;
         this.formateur = formateur;
     }
-
     public Quiz(){}
 
     public Long getIdQuiz() { return idQuiz; }
     public void setIdQuiz(Long idQuiz) { this.idQuiz = idQuiz; }
 
-    public String getTitre() { return titre; }
-    public void setTitre(String titre) { this.titre = titre; }
+    public String getTitre() {
+        return titre;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
 
-    public String getObjectif() { return objectif; }
-    public void setObjectif(String objectif) { this.objectif = objectif; }
+    public String getDescription() {
+        return description;
+    }
 
-    public int getDuree() { return duree; }
-    public void setDuree(int duree) { this.duree = duree; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public LocalDate getDateLimite() { return dateLimite; }
-    public void setDateLimite(LocalDate dateLimite) { this.dateLimite = dateLimite; }
+    public String getObjectif() {
+        return objectif;
+    }
 
-    public LocalDate getDateCreation() { return dateCreation; }
-    public void setDateCreation(LocalDate dateCreation) { this.dateCreation = dateCreation; }
+    public void setObjectif(String objectif) {
+        this.objectif = objectif;
+    }
 
-    public int getNbrTentatives() { return nbrTentatives; }
-    public void setNbrTentatives(int nbrTentatives) { this.nbrTentatives = nbrTentatives; }
+    public int getDuree() {
+        return duree;
+    }
 
-    public boolean isMelangeQust() { return melangeQust; }
-    public void setMelangeQust(boolean melangeQust) { this.melangeQust = melangeQust; }
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
 
-    public boolean isMelangeRep() { return melangeRep; }
-    public void setMelangeRep(boolean melangeRep) { this.melangeRep = melangeRep; }
+    public LocalDate getDateLimite() {
+        return dateLimite;
+    }
 
-    public String getTypeQuiz() { return typeQuiz; }
-    public void setTypeQuiz(String typeQuiz) { this.typeQuiz = typeQuiz; }
+    public void setDateLimite(LocalDate dateLimite) {
+        this.dateLimite = dateLimite;
+    }
 
-    public Statut getStatut() { return statut; }
-    public void setStatut(Statut statut) { this.statut = statut; }
+    public LocalDate getDateCreation() {
+        return dateCreation;
+    }
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
 
-    public float getScore() { return score; }
-    public void setScore(float score) { this.score = score; } 
+    public int getNbrTentatives() {
+        return nbrTentatives;
+    }
 
-    public Categorie getCategorie() { return categorie; }
-    public void setCategorie(Categorie categorie) { this.categorie = categorie; }
+    public void setNbrTentatives(int nbrTentatives) {
+        this.nbrTentatives = nbrTentatives;
+    }
 
-    public Administrateur getAdministrateur() { return administrateur; }
-    public void setAdministrateur(Administrateur administrateur) { this.administrateur = administrateur; }
+    public boolean isMelangeQust() {
+        return melangeQust;
+    }
 
-    public Formateur getFormateur() { return formateur; }
-    public void setFormateur(Formateur formateur) { this.formateur = formateur; }
+    public void setMelangeQust(boolean melangeQust) {
+        this.melangeQust = melangeQust;
+    }
+
+    public boolean isMelangeRep() {
+        return melangeRep;
+    }
+
+    public void setMelangeRep(boolean melangeRep) {
+        this.melangeRep = melangeRep;
+    }
+
+    public String getTypeQuiz() {
+        return typeQuiz;
+    }
+
+    public void setTypeQuiz(String typeQuiz) {
+        this.typeQuiz = typeQuiz;
+    }
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+    public Administrateur getAdministrateur() {
+        return administrateur;
+    }
+
+    public void setAdministrateur(Administrateur administrateur) {
+        this.administrateur = administrateur;
+    }
+
+    public Formateur getFormateur() {
+        return formateur;
+    }
+
+    public void setFormateur(Formateur formateur) {
+        this.formateur = formateur;
+    }
 }

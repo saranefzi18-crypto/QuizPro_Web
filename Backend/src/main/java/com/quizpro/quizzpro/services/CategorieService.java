@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.quizpro.quizzpro.entities.Categorie;
 import com.quizpro.quizzpro.repositories.CategorieRepository;
 import com.quizpro.quizzpro.repositories.QuizRepository;
+
 
 @Service
 public class CategorieService {
@@ -30,7 +32,6 @@ public class CategorieService {
 
     @Transactional
     public void supprimer(Long id) {
-
         if (!catRepo.existsById(id)) {
             throw new RuntimeException("Catégorie introuvable");
         }
@@ -41,4 +42,14 @@ public class CategorieService {
 
         catRepo.deleteById(id);
     }
+
+    @Transactional 
+    public Categorie getCat(Long id){
+        if (!catRepo.existsById(id)) {
+            throw new RuntimeException("Catégorie introuvable");
+        }
+        return catRepo.findByIdCat(id);
+    }
 }
+
+

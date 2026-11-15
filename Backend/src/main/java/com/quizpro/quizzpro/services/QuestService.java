@@ -50,7 +50,7 @@ public class QuestService {
 
     @Transactional
     public List<Question> listerQuestions(Long idQuiz) {
-        return quesRepo.findByQuiz(idQuiz);
+        return quesRepo.findByQuiz_IdQuiz(idQuiz);
     }
 
 }

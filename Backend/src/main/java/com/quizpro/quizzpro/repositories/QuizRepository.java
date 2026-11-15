@@ -1,5 +1,4 @@
 package com.quizpro.quizzpro.repositories;
-
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,5 +10,5 @@ public interface QuizRepository extends JpaRepository<Quiz, Long>{
     
     public List<Quiz> findByStatut(Statut statut);
     public boolean existsByCategorieIdCat(Long id);
-
+    public Quiz findByIdQuiz(long id);
 }

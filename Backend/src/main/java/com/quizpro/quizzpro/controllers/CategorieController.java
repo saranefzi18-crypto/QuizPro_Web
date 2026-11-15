@@ -1,10 +1,7 @@
 package com.quizpro.quizzpro.controllers;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import com.quizpro.quizzpro.entities.Categorie;
 import com.quizpro.quizzpro.services.CategorieService;
 
@@ -25,8 +22,14 @@ public class CategorieController {
         return catServ.getAll();
     }
 
-    @DeleteMapping("/{id}")
-    public void supprimerCat(@PathVariable Long id){
-        catServ.supprimer(id);
+    @GetMapping("/{id}")
+    public Categorie getCat(@PathVariable Long id){
+        return catServ.getCat(id);
+    }
+
+    @DeleteMapping("del/{idCat}")
+    public void supprimerCat(@PathVariable Long idCat){
+        catServ.supprimer(idCat);
     }
 }
+

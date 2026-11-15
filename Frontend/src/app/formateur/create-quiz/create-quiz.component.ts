@@ -45,7 +45,7 @@ export class CreateQuizComponent {
       administrateur: null
     };
 
-    this.quizService.creerQuiz(quizData).subscribe({
+    this.quizService.creatQuiz(quizData).subscribe({
       next: (data) => {
         this.router.navigate(['/quiz', data.idQuiz, 'questions']);
       },
