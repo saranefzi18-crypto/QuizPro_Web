@@ -1,8 +1,6 @@
 package com.quizpro.quizzpro.services;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +10,6 @@ import com.quizpro.quizzpro.repositories.QuestionRepository;
 @Service
 public class QuestService {
 
-    @Autowired
     private QuestionRepository quesRepo;
 
     public QuestService(QuestionRepository quesRepo){

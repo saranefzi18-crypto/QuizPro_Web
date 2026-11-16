@@ -1,7 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "question")
@@ -26,7 +25,7 @@ public class Question {
     @Column(length = 255)
     private String reponceCorrect;
 
-    private LocalDate duree;
+    private int duree;
 
     @ManyToOne
     @JoinColumn(name = "id_quiz")
@@ -34,7 +33,7 @@ public class Question {
 
     public Question(){}
 
-    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, LocalDate duree, Quiz quiz) {
+    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, int duree, Quiz quiz) {
         this.typeQuest = typeQuest;
         this.contenu = contenu;
         this.image = image;
@@ -63,8 +62,8 @@ public class Question {
     public String getReponceCorrect() { return reponceCorrect; }
     public void setReponceCorrect(String reponceCorrect) { this.reponceCorrect = reponceCorrect; }
 
-    public LocalDate getDuree() { return duree; }
-    public void setDuree(LocalDate duree) { this.duree = duree; }
+    public int getDuree() { return duree; }
+    public void setDuree(int duree) { this.duree = duree; }
 
     public Quiz getQuiz() { return quiz; }
     public void setQuiz(Quiz quiz) { this.quiz = quiz; }

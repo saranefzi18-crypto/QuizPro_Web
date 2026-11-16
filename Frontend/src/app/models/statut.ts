@@ -1,6 +1,6 @@
 export enum Statut {
-    Acceptée,
-    Refusée,
-    En_Attent,
-    Publiee
+    Acceptée = 'Acceptée',
+    Refusée = 'Refusée',
+    En_Attent = 'En_Attent',
+    Publiee = 'Publiee'
 }

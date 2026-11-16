@@ -13,13 +13,14 @@
       <th>Action</th>
     </tr>
     <tr *ngFor="let q of quizList">
-      <td>{{ q.id }}</td>
+      <td>{{ q.idQuiz }}</td>
       <td>{{ q.titre }}</td>
       <td>{{ q.description }}</td>
       <td>{{ q.statut }}</td>
       <td>
-        <button *ngIf="q.statut !== 'Publiee'" [routerLink]="['form/quiz', q.id]" (click)="publierQuiz(q.id)"></button>
-        <a [routerLink]="['/form/quiz', q.idQuiz]">Détails</a>
+        <button *ngIf="q.statut !== 'Publiee'" [routerLink]="['/form/quiz', q.idQuiz]" (click)="publierQuiz(q.idQuiz)">Publier</button>
+        <a *ngIf="q.statut !== 'Publiee'" [routerLink]="['/quiz/modfQuiz', q.idQuiz]">Modifier</a>
+        <a [routerLink]="['/quiz', q.idQuiz]">Détails</a>
       </td>
     </tr>
   </table>

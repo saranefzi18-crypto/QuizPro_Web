@@ -1,6 +1,5 @@
 package com.quizpro.quizzpro.services;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.quizpro.quizzpro.entities.Quiz;
@@ -10,7 +9,6 @@ import com.quizpro.quizzpro.repositories.QuizRepository;
 @Service
 public class QuizService {
 
-    @Autowired
     private QuizRepository quizrepo;
 
     public QuizService(QuizRepository quizrepo){
@@ -24,8 +22,7 @@ public class QuizService {
 
     @Transactional
     public List<Quiz> listQuizs(){
-        List<Quiz> liste =quizrepo.findAll();
-        return liste;
+        return quizrepo.findAll();
     }
 
     @Transactional
@@ -34,10 +31,8 @@ public class QuizService {
     }
 
     @Transactional
-    public Quiz updateStatus(Quiz quiz, Statut statut){
-        if(quizrepo.findById(quiz.getIdQuiz()).isEmpty()){
-            throw new RuntimeException("Quiz introuvable");
-        }
+    public Quiz updateStatus(Long idQuiz, Statut statut){
+        Quiz quiz = quizrepo.findById(idQuiz).orElseThrow(() -> new RuntimeException("Quiz introuvable"));
         quiz.setStatut(statut);
         return quizrepo.save(quiz);
     }
@@ -68,7 +63,9 @@ public class QuizService {
         q.setTypeQuiz(quiz.getTypeQuiz());
         q.setStatut(quiz.getStatut());
         q.setScore(quiz.getScore());
-
+        q.setCategorie(quiz.getCategorie());
+        q.setFormateur(quiz.getFormateur());
+        q.setAdministrateur(quiz.getAdministrateur());
 
         return quizrepo.save(q);
     }

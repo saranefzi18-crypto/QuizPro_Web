@@ -16,14 +16,14 @@ export class QuizService {
   }
 
   getQuiz(idQuiz : number){
-    return this.http.get<Quiz>(this.baseUrl + idQuiz);
+    return this.http.get<Quiz>(this.baseUrl +"/"+ idQuiz);
   }
   creatQuiz(data: any){
     return this.http.post<Quiz>(this.baseUrl+ "/create" ,data);
   }
 
   publierQuiz(idQuiz: number){
-    return this.http.get<Quiz>(this.baseUrl + "/pubier/"+ idQuiz);
+    return this.http.patch<Quiz>(this.baseUrl + "/modifStat/"+ idQuiz +"/publiee", {});
   }
 
   updateQuiz(idQuiz: number, quiz: Quiz) {

@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { Quiz } from '../models/quiz';
-import { QuizService } from '../service/quiz.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Categorie } from '../models/categorie';
-import { CategorieService } from '../service/categorie.service';
-import { Statut } from '../models/statut';
-
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Quiz } from '../../models/quiz';
+import { Categorie } from '../../models/categorie';
+import { QuizService } from '../../service/quiz.service';
+import { CategorieService } from '../../service/categorie.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Statut } from '../../models/statut';
 
 @Component({
   selector: 'app-modif-quiz',
@@ -21,7 +20,7 @@ export class ModifQuizComponent {
 
   constructor(public quizServ :QuizService, public catServ :CategorieService, public router :Router, public route : ActivatedRoute){
     this.route.params.subscribe(params =>{
-      const id = params["id"];
+      const id = params["idQuiz"];
       if (id){
         this.quizServ.getQuiz(id).subscribe({
           next : data =>{
@@ -50,9 +49,19 @@ export class ModifQuizComponent {
   }
 
   enregistrer(){
-    this.quizServ.updateQuiz(this.quiz.idQuiz,this.quiz).subscribe(
-      ()=> this.router.navigate(['/quiz'])
-    )
+    this.quizServ.updateQuiz(this.quiz.idQuiz,this.quiz).subscribe({
+
+      next: () => {
+        alert("Quiz modifié avec succès !");
+        this.router.navigate(['/form/quiz']);
+      },
+
+      error: (err) => {
+        console.error(err);
+        alert("Erreur lors de la modification !");
+      }
+
+    });
   }
 
 }

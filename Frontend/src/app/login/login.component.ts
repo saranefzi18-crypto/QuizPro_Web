@@ -26,17 +26,13 @@ export class LoginComponent {
       this.user = res;
 
       if (res.role === "commercial") {
-        this.router.navigate(['/quiz']);
+        this.router.navigate(['']);
       }
       else if (res.role === "formateur") {
-
-        this.router.navigate(['/listcategories']);
-//ajoutcategories
-        //this.router.navigate(['/form/quiz']);
-
+        this.router.navigate(['/form/quiz']);
       }
       else if (res.role === "administrateur") {
-        this.router.navigate(['/listcategories']);
+        this.router.navigate(['/listCat']);
       }
     },
     error: err => {

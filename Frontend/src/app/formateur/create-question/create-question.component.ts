@@ -19,10 +19,10 @@ export class CreateQuestionComponent {
 
   typeQuest: string ='';
   contenu: string ='';
-  duree: number = 0;
+  duree: number =0;
   image: string ='';
   document: string ='';
-  reponseCorrect: string = '';
+  reponceCorrect: string = '';
 
   constructor(public route: ActivatedRoute, public questionService: QuestionService){
     this.route.params.subscribe(
@@ -35,7 +35,7 @@ export class CreateQuestionComponent {
 
   enregistrerQuestion(){
 
-    let q = new Question(this.typeQuest, this.contenu, this.image, this.document, this.reponseCorrect, this.duree, this.idQuiz);
+    let q = new Question(this.typeQuest, this.contenu, this.image, this.document, this.reponceCorrect, this.duree, this.idQuiz);
 
     if(this.modeModification == false){
       this.questionService.AjouterQuestion(q).subscribe(()=>{
@@ -65,9 +65,9 @@ export class CreateQuestionComponent {
     this.duree = q.duree;
     this.image = q.image;
     this.document = q.document;
-    this.reponseCorrect = q.reponseCorrect;
+    this.reponceCorrect = q.reponceCorrect;
 
-    this.modeModification = true;
+    this.modeModification = false;
   }
 
   afficherQuestions(){

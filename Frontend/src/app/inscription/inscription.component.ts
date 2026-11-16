@@ -87,15 +87,12 @@ export class InscriptionComponent {
         }
 
         if(this.role == "Formateur"){
-
-          this.router.navigate(['/ajoutcategories']); 
-
          this.router.navigate(['/form/quiz']); 
 
         }
 
         if(this.role == "Administrateur"){
-          this.router.navigate(['/listcategories']); 
+          this.router.navigate(['/listCat']); 
         }
       },
 

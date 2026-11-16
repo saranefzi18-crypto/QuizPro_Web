@@ -1,6 +1,5 @@
 package com.quizpro.quizzpro.controllers;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.quizpro.quizzpro.entities.Quiz;
 import com.quizpro.quizzpro.entities.Statut;
@@ -12,7 +11,6 @@ import com.quizpro.quizzpro.services.QuizService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class QuizController {
 
-    @Autowired
     private QuizService quizServ;
 
     public QuizController(QuizService quizServ){
@@ -34,9 +32,9 @@ public class QuizController {
         return quizServ.createQuiz(q);
     }
 
-    @PatchMapping("/modifStat")
-    public Quiz modQuiz(@RequestBody Quiz quiz, @RequestBody Statut status){
-        return quizServ.updateStatus(quiz, status);
+    @PatchMapping("/modifStat/{idQuiz}/{statut}")
+    public Quiz modStat(@PathVariable Long idQuiz, @RequestBody Statut status){
+        return quizServ.updateStatus(idQuiz, status);
     }
 
     @GetMapping("/{idQuiz}")

@@ -1,6 +1,4 @@
 package com.quizpro.quizzpro.services;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +12,8 @@ import com.quizpro.quizzpro.repositories.UtilisateurRepository;
 @Service
 public class AuthService {
 	
-	@Autowired
 	private UtilisateurRepository utlrepo;
 	
-	@Autowired
     private BCryptPasswordEncoder mopcryp;
 
 	public AuthService(UtilisateurRepository utlrepo, BCryptPasswordEncoder mopcryp){
@@ -36,7 +32,7 @@ public class AuthService {
 			throw new RuntimeException("Le prenom doit contenir uniquement des lettres ");
 		}
 
-		if (utl.getEmail() == null || !utl.getEmail().matches("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]+")) {
+		if (utl.getEmail() == null || !utl.getEmail().matches("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+")) {
         	throw new RuntimeException("Format d'email invalide");
     	}
 

@@ -5,43 +5,35 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-<<<<<<< HEAD
 @Table(name = "categories")
-public class categorie {
-=======
-@Table(name = "categorie")
-
 public class Categorie {
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCat;
 
+    @Column
     private String nom;
+
+    @Column
     private String description;
-    
-    // Attribut status (PENDING, ACCEPTED, REFUSED)
-    private String status = "PENDING";
+
+    // Attribut status (En Attent, Acceptee, refusee)
+    @Column
+    private String status = "En Attent";
 
     @JsonIgnore
     @OneToMany(mappedBy = "categorie")
     private List<Quiz> quizs;
 
-<<<<<<< HEAD
-    public categorie() {
-    }
-
-    public int getIdCat() {
-=======
     public Categorie() {}
 
-    public Categorie(String nom, String description) {
+    public Categorie(String nom, String description, String status) {
         this.nom = nom;
         this.description = description;
+        this.status=status;
     }
+
     public Long getIdCat() {
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
         return idCat;
     }
 
@@ -57,7 +49,6 @@ public class Categorie {
         this.nom = nom;
     }
 
-<<<<<<< HEAD
     public String getDescription() {
         return description;
     }
@@ -81,8 +72,5 @@ public class Categorie {
     public void setQuizs(List<Quiz> quizs) {
         this.quizs = quizs;
     }
-=======
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
+
 }

@@ -1,7 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "quiz")
@@ -24,10 +23,10 @@ public class Quiz {
     private int duree;
 
     @Column
-    private LocalDate dateLimite;
+    private String dateLimite;
 
     @Column
-    private LocalDate dateCreation;
+    private String dateCreation;
 
     @Column
     private int nbrTentatives;
@@ -59,8 +58,8 @@ public class Quiz {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
-    public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
-                LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
+    public Quiz(String titre, String description, String objectif, int duree, String dateLimite, 
+                String dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
                 String typeQuiz, Statut statut, float score, Categorie categorie, 
                 Administrateur administrateur, Formateur formateur) {
         this.titre = titre;
@@ -79,24 +78,11 @@ public class Quiz {
         this.administrateur = administrateur;
         this.formateur = formateur;
     }
+
     public Quiz(){}
 
-<<<<<<< HEAD
-
-  
-    public int getIdQuiz() {
-    	return idQuiz; 
-    	}
-    public void setIdQuiz(int idQuiz) { 
-    	this.idQuiz = idQuiz; }
-
-    public Quiz() {
-    }
-
-=======
     public Long getIdQuiz() { return idQuiz; }
     public void setIdQuiz(Long idQuiz) { this.idQuiz = idQuiz; }
->>>>>>> 7252554583b1a8eadfebf1965e43e1ae6bfd5ee9
 
     public String getTitre() {
         return titre;
@@ -130,18 +116,18 @@ public class Quiz {
         this.duree = duree;
     }
 
-    public LocalDate getDateLimite() {
+    public String getDateLimite() {
         return dateLimite;
     }
 
-    public void setDateLimite(LocalDate dateLimite) {
+    public void setDateLimite(String dateLimite) {
         this.dateLimite = dateLimite;
     }
 
-    public LocalDate getDateCreation() {
+    public String getDateCreation() {
         return dateCreation;
     }
-    public void setDateCreation(LocalDate dateCreation) {
+    public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
     }
 
@@ -176,6 +162,7 @@ public class Quiz {
     public void setTypeQuiz(String typeQuiz) {
         this.typeQuiz = typeQuiz;
     }
+
     public Statut getStatut() {
         return statut;
     }

@@ -15,20 +15,20 @@ export class CategorieService {
   }
 
   getCat(idCat: number) {
-    return this.http.get<Categorie>(this.baseUrl + idCat);
+    return this.http.get<Categorie>(this.baseUrl +"/"+ idCat);
   }
 
   ajouterCategorie(categorie: Categorie) {
-    return this.http.post<Categorie>(this.baseUrl + "/add", categorie);
-}
+    return this.http.post<Categorie>(this.baseUrl + "/ajout", categorie);
+  }
+  
   // Accepter une catégorie
   accepterCategorie(idCat: number) {
-    return this.http.put<Categorie>(this.baseUrl + "/categorie/accepter/" + idCat, {});
+    return this.http.put<Categorie>(this.baseUrl + "/accepter/" + idCat, {});
   }
 
-
   refuserCategorie(idCat: number) {
-    return this.http.put<Categorie>(this.baseUrl + "/categorie/refuser/" + idCat, {});
+    return this.http.put<Categorie>(this.baseUrl + "/refuser/" + idCat, {});
   }
 }
 
