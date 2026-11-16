@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../models/quiz';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-formpage',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './formpage.component.html',
   styleUrl: './formpage.component.css'
 })

@@ -1,5 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -40,14 +41,17 @@ public class Quiz {
 
     private float score;
 
+    @JsonIgnoreProperties({"quizs", "hibernateLazyInitializer", "handler"})
     @ManyToOne
     @JoinColumn(name = "id_cat")
     private categorie categorie;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "motdepasse"})
     @ManyToOne
     @JoinColumn(name = "id_admin")
     private Administrateur administrateur;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "motdepasse"})
     @ManyToOne
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;

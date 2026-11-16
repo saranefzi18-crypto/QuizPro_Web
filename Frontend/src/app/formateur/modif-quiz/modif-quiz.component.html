@@ -1,0 +1,64 @@
+<div class="edit-card">
+  <h1>Modifier un quiz</h1>
+
+  <form #f="ngForm" (ngSubmit)="enregistrer()">
+    <div class="form-group">
+      <label>Titre :</label>
+      <input type="text" [(ngModel)]="quiz.titre" name="titre" required />
+    </div>
+
+    <div class="form-group">
+      <label>Description :</label>
+      <input type="text" [(ngModel)]="quiz.description" name="description" required />
+    </div>
+
+    <div class="form-group">
+      <label>Objectif :</label>
+      <input type="text" [(ngModel)]="quiz.objectif" name="objectif" required />
+    </div>
+
+    <div class="form-group">
+      <label>Durée (minutes) :</label>
+      <input type="number" [(ngModel)]="quiz.duree" name="duree" required />
+    </div>
+
+    <div class="form-group">
+      <label>Date limite :</label>
+      <input type="date" [(ngModel)]="quiz.dateLimite" name="dateLimite" required />
+    </div>
+
+    <div class="form-group">
+      <label>Nombre de tentatives :</label>
+      <input type="number" [(ngModel)]="quiz.nbrTentatives" name="nbrTentatives" required />
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="melangeQust" [(ngModel)]="quiz.melangeQust" name="melangeQust" />
+      <label for="melangeQust">Mélanger les questions</label>
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="melangeRep" [(ngModel)]="quiz.melangeRep" name="melangeRep" />
+      <label for="melangeRep">Mélanger les réponses</label>
+    </div>
+
+    <div class="form-group">
+      <label>Type de quiz :</label>
+      <input type="text" [(ngModel)]="quiz.typeQuiz" name="typeQuiz" required />
+    </div>
+
+    <div class="form-group">
+      <label>Catégorie :</label>
+      <select [(ngModel)]="quiz.categorie.idCat" name="idCat" required>
+        <option *ngFor="let c of cat" [value]="c.idCat">
+          {{ c.nom }}
+        </option>
+      </select>
+    </div>
+
+    <div class="actions-row">
+      <a routerLink="/formdashbord" class="btn-cancel">Annuler</a>
+      <button type="submit" class="btn-submit">Enregistrer</button>
+    </div>
+  </form>
+</div>

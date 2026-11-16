@@ -1,7 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "question")
@@ -9,7 +8,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idQuest;
+    private Long idQuest;
 
     @Column(length = 50)
     private String typeQuest;
@@ -26,17 +25,17 @@ public class Question {
     @Column(length = 255)
     private String reponceCorrect;
 
-    private LocalDate duree;
+    private int duree;
 
     @ManyToOne
     @JoinColumn(name = "id_quiz")
     private Quiz quiz;
 
-    protected Question() {
-        // Constructeur requis par JPA.
+    public Question() {
     }
 
-    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, LocalDate duree, Quiz quiz) {
+    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, int duree,
+            Quiz quiz) {
         this.typeQuest = typeQuest;
         this.contenu = contenu;
         this.image = image;
@@ -46,28 +45,67 @@ public class Question {
         this.quiz = quiz;
     }
 
-    // Getters et Setters
-    public int getIdQuest() { return idQuest; }
-    public void setIdQuest(int idQuest) { this.idQuest = idQuest; }
+    public Long getIdQuest() {
+        return idQuest;
+    }
 
-    public String getTypeQuest() { return typeQuest; }
-    public void setTypeQuest(String typeQuest) { this.typeQuest = typeQuest; }
+    public void setIdQuest(Long idQuest) {
+        this.idQuest = idQuest;
+    }
 
-    public String getContenu() { return contenu; }
-    public void setContenu(String contenu) { this.contenu = contenu; }
+    public String getTypeQuest() {
+        return typeQuest;
+    }
 
-    public String getImage() { return image; }
-    public void setImage(String image) { this.image = image; }
+    public void setTypeQuest(String typeQuest) {
+        this.typeQuest = typeQuest;
+    }
 
-    public String getDocument() { return document; }
-    public void setDocument(String document) { this.document = document; }
+    public String getContenu() {
+        return contenu;
+    }
 
-    public String getReponceCorrect() { return reponceCorrect; }
-    public void setReponceCorrect(String reponceCorrect) { this.reponceCorrect = reponceCorrect; }
+    public void setContenu(String contenu) {
+        this.contenu = contenu;
+    }
 
-    public LocalDate getDuree() { return duree; }
-    public void setDuree(LocalDate duree) { this.duree = duree; }
+    public String getImage() {
+        return image;
+    }
 
-    public Quiz getQuiz() { return quiz; }
-    public void setQuiz(Quiz quiz) { this.quiz = quiz; }
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDocument() {
+        return document;
+    }
+
+    public void setDocument(String document) {
+        this.document = document;
+    }
+
+    public String getReponceCorrect() {
+        return reponceCorrect;
+    }
+
+    public void setReponceCorrect(String reponceCorrect) {
+        this.reponceCorrect = reponceCorrect;
+    }
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
 }

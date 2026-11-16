@@ -1,8 +1,7 @@
-# Repositories à exclure
 QuizPro_Flutter/
 Dsi3.2-DevMinds-QuizPro/
+AnotherBranche/
 
-# IDE & Config
 .vscode/
 .idea/
 *.log

@@ -1,0 +1,33 @@
+<div class="container-list">
+  <div class="card-list">
+    <h2>Liste des Catégories</h2>
+
+    <table class="table-custom">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr *ngFor="let cat of categories">
+          <td>{{ cat.nom }}</td>
+          <td>{{ cat.description || 'Aucune description' }}</td>
+          <td>{{ cat.status }}</td>
+          <td class="text-center actions-btns">
+            <button class="btn-action btn-accepter" (click)="accepter(cat.idCat)">Accepter</button>
+            <button class="btn-action btn-refuser" (click)="refuser(cat.idCat)">Refuser</button>
+          </td>
+        </tr>
+        
+       
+        <tr *ngIf="categories.length === 0">
+          <td colspan="3" class="text-center empty-msg">Aucune catégorie trouvée.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

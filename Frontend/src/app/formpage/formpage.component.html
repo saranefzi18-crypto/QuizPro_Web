@@ -15,9 +15,8 @@
             <h1>Gestion des Quiz</h1>
             <p>Gérez, modifiez et suivez les quiz assignés à vos équipes commerciales.</p>
         </div>
-        <a href="#" class="btn btn-primary btn-large">+ Créer un nouveau Quiz</a>
+        <a routerLink="/quiz/create" class="btn btn-primary btn-large">+ Créer un nouveau Quiz</a>
     </div>
-
     <div class="table-card">
         <table class="quiz-table">
             <thead>
@@ -47,7 +46,7 @@
                         }">{{ q.statut }}</span>
                     </td>
                     <td class="actions">
-                        <button class="btn-action edit">Modifier</button>
+                        <button class="btn-action edit" [routerLink]="['/quiz/modfQuiz', q.idQuiz]">Modifier</button>
                         <button class="btn-action delete" (click)="supprimerQuiz(q.idQuiz)">Supprimer</button>
                     </td>
                 </tr>

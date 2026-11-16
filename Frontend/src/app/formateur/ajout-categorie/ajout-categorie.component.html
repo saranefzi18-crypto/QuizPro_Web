@@ -1,0 +1,19 @@
+<div class="container-ajout">
+  <div class="card-ajout">
+    <h2>Ajouter une Catégorie</h2>
+
+    <form (ngSubmit)="ajouter()">
+      <div class="form-group">
+        <label>Nom :</label>
+        <input type="text" [(ngModel)]="nom" name="nom" required class="form-control" placeholder="Entrer le nom...">
+      </div>
+
+      <div class="form-group">
+        <label>Description :</label>
+        <input type="text" [(ngModel)]="desc" name="desc" class="form-control" placeholder="Entrer la description...">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-submit">Enregistrer</button>
+    </form>
+  </div>
+</div>

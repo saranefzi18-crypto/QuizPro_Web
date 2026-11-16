@@ -1,0 +1,48 @@
+<div>
+    <h2>Gestion des questions</h2>
+
+    <h4>Liste des questions</h4>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Contenu</th>
+            <th>Durée</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr *ngFor="let q of questions">
+            <td>{{ q.idQuest }}</td>
+            <td>{{ q.typeQuest }}</td>
+            <td>{{ q.contenu }}</td>
+            <td>{{ q.duree }}</td>
+            <td>
+                <button (click)="modifierQuestion(q)">Modifier</button>
+                <button (click)="supprimerQuestion(q.idQuest)">Supprimer</button>
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <h4>{{ modeModification ? 'Modifier une question' : 'Ajouter une question' }}</h4>
+
+    <label>Type</label>
+    <select [(ngModel)]="typeQuest" name="typeQuest">
+        <option value="QCM">QCM</option>
+        <option value="Vrai/Faux">Vrai / Faux</option>
+        <option value="Question ouverte">Question ouverte</option>
+    </select>
+
+    <label>Contenu</label>
+    <textarea [(ngModel)]="contenu" name="contenu"></textarea>
+
+    <label>Durée</label>
+    <input type="number" [(ngModel)]="duree" name="duree">
+
+    <button (click)="enregistrerQuestion()">
+        {{ modeModification ? 'Modifier' : 'Ajouter' }}
+    </button>
+
+</div>

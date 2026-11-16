@@ -19,6 +19,21 @@ public class QuizController {
         return quizService.getQuizByFormateur(id);
     }
 
+    @PostMapping("/create")
+    public Quiz createQuiz(@RequestBody Quiz q) {
+        return quizService.createQuiz(q);
+    }
+
+    @GetMapping("/{idQuiz}")
+    public Quiz getQuiz(@PathVariable int idQuiz) {
+        return quizService.getQuiz(idQuiz);
+    }
+
+    @PutMapping("/modfQuiz/{idQuiz}")
+    public Quiz modifierQuiz(@PathVariable int idQuiz, @RequestBody Quiz quiz) {
+        return quizService.modifierQuiz(idQuiz, quiz);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteQuiz(@PathVariable int id) {
         quizService.deleteQuiz(id);

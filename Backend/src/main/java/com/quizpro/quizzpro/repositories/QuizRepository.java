@@ -6,7 +6,6 @@ import com.quizpro.quizzpro.entities.Quiz;
 
 public interface QuizRepository extends JpaRepository<Quiz, Integer> {
 
-
     List<Quiz> findByFormateurId(Long formateurId);
 
 }

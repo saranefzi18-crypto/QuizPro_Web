@@ -1,0 +1,94 @@
+
+.container {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  color: var(--bleu-nuit);
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.container > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.container .btn-primary {
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container .btn-primary:hover {
+  background: var(--orange-fonce);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th {
+  background: var(--bleu-nuit);
+  color: white;
+  padding: 14px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  color: var(--texte);
+}
+
+tr:hover td {
+  background: var(--fond-clair);
+}
+
+button {
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: var(--orange-fonce);
+}
+
+td a {
+  color: var(--bleu-fonce);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+td a:hover {
+  color: var(--orange-fonce);
+}
+
+@media (max-width: 700px) {
+  .container {
+    margin: 20px 10px;
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}

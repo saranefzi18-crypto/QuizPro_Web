@@ -23,6 +23,18 @@ export class QuizService {
     return this.http.delete<void>(`${this.baseUrl}/${idQuiz}`);
   }
 
+  creatQuiz(data: any): Observable<Quiz> {
+    return this.http.post<Quiz>(`${this.baseUrl}/create`, data);
+  }
+
+  getQuiz(idQuiz: number): Observable<Quiz> {
+    return this.http.get<Quiz>(`${this.baseUrl}/${idQuiz}`);
+  }
+
+  updateQuiz(idQuiz: number, quiz: Quiz): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/modfQuiz/${idQuiz}`, quiz);
+  }
+
 
 
 }

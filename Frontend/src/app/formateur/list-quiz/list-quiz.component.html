@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <div>
+        <h2>Liste des Quiz</h2>
+        <a routerLink="/quiz/create" class="btn btn-primary">+ Créer un Quiz</a>
+    </div>
+  
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let q of quizList">
+      <td>{{ q.idQuiz }}</td>
+      <td>{{ q.titre }}</td>
+      <td>{{ q.description }}</td>
+      <td>{{ q.statut }}</td>
+      <td>
+        <button *ngIf="q.statut !== 'Publiee'" [routerLink]="['/form/quiz', q.idQuiz]" (click)="publierQuiz(q.idQuiz)">Publier</button>
+        <a *ngIf="q.statut !== 'Publiee'" [routerLink]="['/quiz/modfQuiz', q.idQuiz]">Modifier</a>
+        <a [routerLink]="['/quiz', q.idQuiz]">Détails</a>
+      </td>
+    </tr>
+  </table>
+</div>

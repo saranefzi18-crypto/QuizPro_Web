@@ -1,5 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,15 +18,17 @@ public class categorie {
     @Column(length = 255)
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
     private List<Quiz> quizs;
+
+    public categorie() {}
 
     public categorie(String nom, String description) {
         this.nom = nom;
         this.description = description;
     }
 
-    // Getters et Setters
     public int getIdCat() { return idCat; }
     public void setIdCat(int idCat) { this.idCat = idCat; }
 
