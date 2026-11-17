@@ -33,8 +33,8 @@ public class QuizController {
     }
 
     @PatchMapping("/modifStat/{idQuiz}/{statut}")
-    public Quiz modStat(@PathVariable Long idQuiz, @RequestBody Statut status){
-        return quizServ.updateStatus(idQuiz, status);
+    public Quiz modStat(@PathVariable Long idQuiz, @PathVariable Statut statut) {
+    return quizServ.updateStatus(idQuiz, statut);
     }
 
     @GetMapping("/{idQuiz}")
@@ -45,6 +45,11 @@ public class QuizController {
     @PutMapping("modfQuiz/{idQuiz}")
     public Quiz modifierQuiz(@PathVariable Long idQuiz, @RequestBody Quiz quiz) {
         return quizServ.modifierQuiz(idQuiz, quiz);
+    }
+
+    @DeleteMapping("del/{idQuiz}")
+    public void deleteQuiz(@PathVariable Long id) {
+        quizServ.deleteQuiz(id);
     }
 
 }

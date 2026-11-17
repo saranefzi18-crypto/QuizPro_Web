@@ -1,0 +1,81 @@
+
+form {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 35px;
+  background: white;
+  border-radius: 12px;
+  border-top: 5px solid var(--bleu);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--bleu-nuit);
+  text-align: center;
+  margin: 35px 0 25px;
+}
+
+label {
+  display: block;
+  color: var(--bleu-nuit);
+  font-weight: bold;
+  margin: 15px 0 8px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--bleu-clair);
+  border-radius: 7px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 5px;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--bleu-fonce);
+  box-shadow: 0 0 5px rgba(21, 147, 196, 0.2);
+}
+
+/* Cases à cocher */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--bleu);
+  cursor: pointer;
+  margin: 5px 0 15px;
+}
+
+/* Bouton */
+button {
+  display: block;
+  margin: 25px auto 0;
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 13px 30px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--orange-fonce);
+}
+
+@media (max-width: 700px) {
+  form {
+    margin: 25px 12px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}

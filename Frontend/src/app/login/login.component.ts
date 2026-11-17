@@ -24,6 +24,7 @@ export class LoginComponent {
       console.log('Utilisateur connecté :', res);
 
       this.user = res;
+      this.auth.userConnecte = res;
 
       if (res.role === "commercial") {
         this.router.navigate(['']);

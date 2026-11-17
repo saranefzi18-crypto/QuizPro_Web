@@ -1,5 +1,5 @@
 
-.container {
+/*.container {
   max-width: 1100px;
   margin: 50px auto;
   padding: 30px;
@@ -90,5 +90,125 @@ td a:hover {
 
   table {
     min-width: 600px;
+  }
+}*/
+
+
+
+.dashboard {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  color: var(--bleu-nuit);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.actions {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  flex: 1;
+  min-width: 220px;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  border-top: 5px solid var(--bleu);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: var(--bleu-nuit);
+  transition: 0.3s;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+}
+
+.icone {
+  font-size: 30px;
+}
+
+.action-card h3 {
+  margin: 15px 0 8px;
+}
+
+.action-card p {
+  color: #666;
+}
+
+.quiz-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-top: 5px solid var(--orange);
+}
+
+.quiz-section h2 {
+  color: var(--bleu-nuit);
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 13px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background: var(--bleu-nuit);
+  color: white;
+}
+
+.actions-table a,
+.actions-table button {
+  display: inline-block;
+  margin: 4px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  background: var(--bleu);
+  color: white;
+}
+
+.actions-table button {
+  background: var(--orange);
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .quiz-section {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 650px;
   }
 }

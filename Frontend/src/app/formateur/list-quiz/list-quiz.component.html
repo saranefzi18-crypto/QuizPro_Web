@@ -1,27 +1,61 @@
-<div class="container mt-4">
-    <div>
-        <h2>Liste des Quiz</h2>
-        <a routerLink="/quiz/create" class="btn btn-primary">+ Créer un Quiz</a>
-    </div>
-  
-  <table border="1">
-    <tr>
-      <th>ID</th>
-      <th>Titre</th>
-      <th>Description</th>
-      <th>Statut</th>
-      <th>Action</th>
-    </tr>
-    <tr *ngFor="let q of quizList">
-      <td>{{ q.idQuiz }}</td>
-      <td>{{ q.titre }}</td>
-      <td>{{ q.description }}</td>
-      <td>{{ q.statut }}</td>
-      <td>
-        <button *ngIf="q.statut !== 'Publiee'" [routerLink]="['/form/quiz', q.idQuiz]" (click)="publierQuiz(q.idQuiz)">Publier</button>
-        <a *ngIf="q.statut !== 'Publiee'" [routerLink]="['/quiz/modfQuiz', q.idQuiz]">Modifier</a>
-        <a [routerLink]="['/quiz', q.idQuiz]">Détails</a>
-      </td>
-    </tr>
-  </table>
+<div class="dashboard">
+
+  <h1>Espace Formateur</h1>
+  <p class="description">Bienvenue dans votre espace de gestion des formations et des quiz.</p>
+
+  <div class="actions">
+
+    <a routerLink="/quiz/create" class="action-card">
+      <h3>Créer un Quiz</h3>
+      <p>Créer un nouveau quiz et ajouter ses questions.</p>
+    </a>
+
+    <a routerLink="/ajout" class="action-card">
+      <h3>Ajouter une catégorie</h3>
+      <p>Ajouter une nouvelle catégorie de formation.</p>
+    </a>
+
+  </div>
+
+  <div class="quiz-section">
+
+    <h2>Gestion des Quiz</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let q of quizList">
+
+          <td>{{ q.idQuiz }}</td>
+          <td>{{ q.titre }}</td>
+          <td>{{ q.description }}</td>
+          <td>{{ q.typeQuiz }}</td>
+          <td>{{ q.statut }}</td>         
+
+          <td class="actions-table">
+            <a *ngIf="q.statut !== 'Publiee' && q.statut !== 'Refusée'" [routerLink]="['/quiz/modfQuiz', q.idQuiz]"> Modifier</a>
+            <button *ngIf="q.statut === 'Acceptée'" (click)="publierQuiz(q.idQuiz)">Publier</button>
+            <button class="btn-action delete" (click)="supprimerQuiz(q.idQuiz)">Supprimer</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="quizList.length === 0">
+          <td colspan="5">Aucun quiz disponible.</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
 </div>

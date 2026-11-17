@@ -2,17 +2,22 @@ package com.quizpro.quizzpro.services;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.quizpro.quizzpro.entities.Categorie;
 import com.quizpro.quizzpro.entities.Quiz;
 import com.quizpro.quizzpro.entities.Statut;
+import com.quizpro.quizzpro.repositories.CategorieRepository;
 import com.quizpro.quizzpro.repositories.QuizRepository;
 
 @Service
 public class QuizService {
 
     private QuizRepository quizrepo;
+    private CategorieRepository catrepo;
 
-    public QuizService(QuizRepository quizrepo){
+    public QuizService(QuizRepository quizrepo, CategorieRepository catrepo){
         this.quizrepo=quizrepo;
+        this.catrepo=catrepo;
     }
 
     @Transactional
@@ -62,12 +67,16 @@ public class QuizService {
         q.setMelangeRep(quiz.isMelangeRep());
         q.setTypeQuiz(quiz.getTypeQuiz());
         q.setStatut(quiz.getStatut());
-        q.setScore(quiz.getScore());
-        q.setCategorie(quiz.getCategorie());
-        q.setFormateur(quiz.getFormateur());
-        q.setAdministrateur(quiz.getAdministrateur());
+
+        Long idCat = quiz.getCategorie().getIdCat();
+        Categorie cat = catrepo.findById(idCat).orElseThrow(() -> new RuntimeException("Catégorie introuvable"));
+        q.setCategorie(cat);
 
         return quizrepo.save(q);
+    }
+
+    public void deleteQuiz(Long id) {
+        quizrepo.deleteById(id);
     }
 
     

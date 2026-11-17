@@ -36,7 +36,6 @@ export class ModifQuizComponent {
             this.quiz.melangeRep=data.melangeRep;
             this.quiz.typeQuiz=data.typeQuiz;
             this.quiz.statut=data.statut;
-            this.quiz.score=data.score;
             this.quiz.categorie = {idCat: data.categorie.idCat};
           },
           error : err => console.error(err)

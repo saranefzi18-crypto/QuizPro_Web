@@ -30,5 +30,9 @@ export class QuizService {
     return this.http.put<any>(this.baseUrl + "/modfQuiz/" + idQuiz, quiz);
   }
 
+  suprQuiz(idQuiz: number){
+    return this.http.delete<any>(this.baseUrl + "/del/" + idQuiz)
+  }
+
 }
 

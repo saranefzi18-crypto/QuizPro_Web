@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Utilisateur } from '../models/utilisateur';
 
 
 @Injectable({
@@ -7,6 +8,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private baseUrl = 'http://localhost:8081/api/auth';
+
+  userConnecte: Utilisateur | null = null;
 
   constructor(public http: HttpClient) {}
 

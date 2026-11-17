@@ -13,32 +13,48 @@ export class ListQuizComponent {
 
   quizList: any[] = [];
   constructor(public quizService :QuizService) {
-      this.listerQuiz(); // appel de methode 
-    }
-  
-    // Méthode de listage
-    listerQuiz() {
-      this.quizService.getQuizList().subscribe({
-        next: (data) => {
-          this.quizList = data;
-          console.log("Liste de quiz:", data);
-        },
+      this.listerQuiz(); 
+  }
+
+  listerQuiz() {
+    this.quizService.getQuizList().subscribe({
+      next: (data) => {
+        this.quizList = data;
+        console.log("Liste de quiz:", data);
+      },
         error: (err) => {
           console.error("Erreur de chargement de quiz :", err);
-        }
-      });
-    }
+      }
+    });
+  }
   
-    // Méthode de publication
-    publierQuiz(id: number) {
-      this.quizService.publierQuiz(id).subscribe({
+  publierQuiz(idQuiz: number) {
+    this.quizService.publierQuiz(idQuiz).subscribe({
+      next: () => {
+        alert("Quiz publié avec succès !");
+        this.listerQuiz(); 
+      },
+      error: (err) => {
+        console.error("Erreur lors de la publication du quiz :", err);
+      }
+    });
+  }
+    
+  supprimerQuiz(idQuiz: number) {
+    if (confirm("Voulez-vous vraiment supprimer ce quiz ?")) {
+
+      this.quizService.suprQuiz(idQuiz).subscribe({
         next: () => {
-          alert("Quiz publié avec succès !");
-          this.listerQuiz(); // actualiser tab
+          alert("Quiz supprimé avec succès !");
+          this.listerQuiz();
         },
         error: (err) => {
-          console.error("Erreur lors de la publication du quiz :", err);
+          console.error("Erreur lors de la suppression :", err);
+          alert("Erreur lors de la suppression du quiz !");
         }
       });
+
     }
+  }
+
 }
