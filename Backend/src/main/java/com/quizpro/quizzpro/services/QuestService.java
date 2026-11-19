@@ -5,19 +5,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.quizpro.quizzpro.entities.Question;
+import com.quizpro.quizzpro.entities.Quiz;
 import com.quizpro.quizzpro.repositories.QuestionRepository;
+import com.quizpro.quizzpro.repositories.QuizRepository;
 
 @Service
 public class QuestService {
 
     private QuestionRepository quesRepo;
+    private QuizRepository quizRepo;
 
-    public QuestService(QuestionRepository quesRepo){
+    public QuestService(QuestionRepository quesRepo, QuizRepository quizRepo){
         this.quesRepo=quesRepo;
+        this.quizRepo=quizRepo;
     }
 
     @Transactional
-    public Question ajouter(Question ques){
+    public Question ajouter(Long idQuiz, Question ques) {
+        Quiz quiz = quizRepo.findById(idQuiz).orElseThrow(() -> new RuntimeException("Quiz introuvable"));
+        ques.setQuiz(quiz);
+
         return quesRepo.save(ques);
     }
 
@@ -32,6 +39,7 @@ public class QuestService {
         q.setImage(ques.getImage());
         q.setDocument(ques.getDocument());
         q.setReponceCorrect(ques.getReponceCorrect());
+        q.setDuree(ques.getDuree());
 
         return quesRepo.save(q);
     }

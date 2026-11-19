@@ -48,8 +48,8 @@ public class QuizController {
     }
 
     @DeleteMapping("del/{idQuiz}")
-    public void deleteQuiz(@PathVariable Long id) {
-        quizServ.deleteQuiz(id);
+    public void deleteQuiz(@PathVariable Long idQuiz) {
+        quizServ.deleteQuiz(idQuiz);
     }
 
 }

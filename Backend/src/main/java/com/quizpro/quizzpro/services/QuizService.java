@@ -78,8 +78,5 @@ public class QuizService {
     public void deleteQuiz(Long id) {
         quizrepo.deleteById(id);
     }
-
-    
-
 }
 

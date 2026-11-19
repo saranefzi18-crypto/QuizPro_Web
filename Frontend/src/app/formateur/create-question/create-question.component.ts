@@ -27,7 +27,7 @@ export class CreateQuestionComponent {
   constructor(public route: ActivatedRoute, public questionService: QuestionService){
     this.route.params.subscribe(
       params => {
-        this.idQuiz=params['idQuiz'];
+        this.idQuiz=Number(params['idQuiz']);
         this.afficherQuestions();
     });
   }
@@ -38,15 +38,25 @@ export class CreateQuestionComponent {
     let q = new Question(this.typeQuest, this.contenu, this.image, this.document, this.reponceCorrect, this.duree, this.idQuiz);
 
     if(this.modeModification == false){
-      this.questionService.AjouterQuestion(q).subscribe(()=>{
-        alert("Question ajoutée !");
-        this.afficherQuestions();
+      this.questionService.AjouterQuestion(this.idQuiz, q).subscribe({
+        next :(data) => {
+          console.log("Question ajoutée :", data);
+          alert("Question ajoutée !");
+          this.afficherQuestions();
+        },
+        error: (err) => {
+         console.log("Status :", err.status);
+        console.log("Erreur détaillée :", err.error);
+        console.log("Données envoyées :", q);
+        alert("Erreur lors de l'ajout ! Vérifie la console.");
+        }
       });
     }
     else{
       this.questionService.ModifierQuestion(q, this.idQues).subscribe(()=> {
         alert("Question modifiée !");
         this.afficherQuestions();
+        this.modeModification = false;
       })
     }
   }
@@ -67,7 +77,7 @@ export class CreateQuestionComponent {
     this.document = q.document;
     this.reponceCorrect = q.reponceCorrect;
 
-    this.modeModification = false;
+    this.modeModification = true;
   }
 
   afficherQuestions(){
@@ -76,4 +86,6 @@ export class CreateQuestionComponent {
       this.questions =data; 
     });
   }
+
+  
 }

@@ -26,10 +26,15 @@ export class CreateQuizComponent {
     this.catService.getAll().subscribe(data => {
       this.catList = data;
     });
-    this.idFormateur = this.auth.userConnecte!.id;
   }
 
   enregistrerQuiz() {
+    if (!this.auth.userConnecte) {
+      alert("Veuillez vous connecter !");
+      return;
+    }
+
+    this.idFormateur = this.auth.userConnecte.id;
 
     let quizData = {
       titre: this.quiz.titre,
@@ -41,26 +46,22 @@ export class CreateQuizComponent {
       nbrTentatives: this.quiz.nbrTentatives,
       typeQuiz: this.quiz.typeQuiz,
       statut: this.quiz.statut,
+      melangeQust: false,
+      melangeRep: false,
       score: 0,
       categorie: { idCat: this.quiz.idCat },
       formateur: { id: this.idFormateur },
       administrateur: null
     };
 
-    console.log("ID Formateur :", this.idFormateur);
-    console.log("ID Catégorie :", this.quiz.idCat);
-    console.log("Quiz envoyé :", quizData);
-
     this.quizService.creatQuiz(quizData).subscribe({
-      next: (data) => {
-        this.router.navigate(['/quiz', data.idQuiz, 'questions']);
+      next: (data1) => {
+        console.log("Quiz créé :", data1);
+        this.router.navigate(['/quiz', data1.idQuiz, 'questions']);
       },
       error: (err) => {
-          console.log("Status :", err.status);
-          console.log("Erreur Backend :", JSON.stringify(err.error, null, 2));
-          console.log("Quiz envoyé :", JSON.stringify(quizData, null, 2));
-
-          alert("Erreur lors de la création du Quiz");
+        console.log("Erreur création quiz :", err);
+        alert("Erreur lors de la création du Quiz");
       }
     })
   }

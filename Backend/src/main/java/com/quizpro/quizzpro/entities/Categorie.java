@@ -25,7 +25,7 @@ public class Categorie {
     @OneToMany(mappedBy = "categorie")
     private List<Quiz> quizs;
 
-    public Categorie() {}
+    public Categorie(){}
 
     public Categorie(String nom, String description, String status) {
         this.nom = nom;

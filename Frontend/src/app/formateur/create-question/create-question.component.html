@@ -38,8 +38,17 @@
     <label>Contenu</label>
     <textarea [(ngModel)]="contenu" name="contenu"></textarea>
 
+    <label>Image</label>
+    <textarea [(ngModel)]="image" name="image"></textarea>
+
+    <label>document</label>
+    <textarea [(ngModel)]="document" name="document"></textarea>
+
     <label>Durée</label>
-    <input type="number" [(ngModel)]="duree" name="duree">
+    <input type="number" [(ngModel)]="duree" name="duree"  required>
+
+    <label>Reponse Correct</label>
+    <textarea [(ngModel)]="reponceCorrect" name="reponceCorrect"></textarea>
 
     <button (click)="enregistrerQuestion()">
         {{ modeModification ? 'Modifier' : 'Ajouter' }}

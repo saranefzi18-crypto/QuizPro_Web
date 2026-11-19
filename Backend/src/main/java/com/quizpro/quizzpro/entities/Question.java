@@ -29,6 +29,7 @@ public class Question {
 
     @ManyToOne
     @JoinColumn(name = "id_quiz")
+  
     private Quiz quiz;
 
     public Question(){}

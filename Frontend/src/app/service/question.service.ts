@@ -14,8 +14,8 @@ export class QuestionService {
     return this.http.get<Question[]>(this.baseUrl + "/listQues/Quiz/" + idQuiz);
   }
 
-  AjouterQuestion(data :any){
-    return this.http.post<Question>(this.baseUrl + "/ajout/", data);
+  AjouterQuestion(idQuiz :number, data :any){
+    return this.http.post<Question>(this.baseUrl + "/ajout/" + idQuiz, data);
   }
 
   ModifierQuestion(ques: Question, idQues : number){

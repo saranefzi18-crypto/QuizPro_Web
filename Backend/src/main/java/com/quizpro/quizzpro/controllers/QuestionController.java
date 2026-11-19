@@ -35,9 +35,9 @@ public class QuestionController {
     }
     
 
-    @PostMapping("/ajout")
-    public Question ajouterQues(@RequestBody Question ques) {
-       return quesServ.ajouter(ques);
+    @PostMapping("/ajout/{idQuiz}")
+    public Question ajouterQues(@PathVariable Long idQuiz, @RequestBody Question ques) {
+       return quesServ.ajouter(idQuiz, ques);
     }
 
     @PutMapping("mod/{idQues}")

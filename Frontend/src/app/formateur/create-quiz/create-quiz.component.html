@@ -17,6 +17,14 @@
         <input type="text" [(ngModel)]="quiz.objectif" name="objectif">
     </div>
 
+    <div>
+        <label>Type</label>
+        <select [(ngModel)]="quiz.typeQuiz" name="typeQuiz">
+            <option value="un Commercial"> un Commercial</option>
+            <option value="une equipe">une equipe</option>
+    </select>
+    </div>
+
     <div >
         <label>Durée en minutes</label>
         <input type="number" class="form-control" [(ngModel)]="quiz.duree" name="duree">

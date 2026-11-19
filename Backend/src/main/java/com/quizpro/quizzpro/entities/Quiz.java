@@ -19,7 +19,7 @@ public class Quiz {
     @Column(length = 255)
     private String objectif;
 
-    @Column(length = 255)
+    @Column
     private int duree;
 
     @Column
@@ -40,6 +40,7 @@ public class Quiz {
     @Column(length = 50)
     private String typeQuiz;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private Statut statut;
 
