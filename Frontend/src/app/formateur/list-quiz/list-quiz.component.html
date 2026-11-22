@@ -43,6 +43,7 @@
           <td>{{ q.statut }}</td>         
 
           <td class="actions-table">
+            <a [routerLink]="['/question/create', q.idQuiz]">Ajouter question</a>
             <a *ngIf="q.statut !== 'Publiee' && q.statut !== 'Refusée'" [routerLink]="['/quiz/modfQuiz', q.idQuiz]"> Modifier</a>
             <button *ngIf="q.statut === 'Acceptée'" (click)="publierQuiz(q.idQuiz)">Publier</button>
             <button class="btn-action delete" (click)="supprimerQuiz(q.idQuiz)">Supprimer</button>

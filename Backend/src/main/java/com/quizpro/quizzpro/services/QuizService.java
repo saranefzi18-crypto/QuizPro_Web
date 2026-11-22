@@ -4,9 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.quizpro.quizzpro.entities.Categorie;
+import com.quizpro.quizzpro.entities.Question;
 import com.quizpro.quizzpro.entities.Quiz;
 import com.quizpro.quizzpro.entities.Statut;
 import com.quizpro.quizzpro.repositories.CategorieRepository;
+import com.quizpro.quizzpro.repositories.QuestionRepository;
 import com.quizpro.quizzpro.repositories.QuizRepository;
 
 @Service
@@ -14,10 +16,12 @@ public class QuizService {
 
     private QuizRepository quizrepo;
     private CategorieRepository catrepo;
+    private QuestionRepository quesRepo;
 
-    public QuizService(QuizRepository quizrepo, CategorieRepository catrepo){
+    public QuizService(QuizRepository quizrepo, CategorieRepository catrepo, QuestionRepository quesRepo){
         this.quizrepo=quizrepo;
         this.catrepo=catrepo;
+        this.quesRepo=quesRepo;
     }
 
     @Transactional
@@ -75,8 +79,12 @@ public class QuizService {
         return quizrepo.save(q);
     }
 
+    @Transactional
     public void deleteQuiz(Long id) {
-        quizrepo.deleteById(id);
+        Quiz quiz = quizrepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Quiz introuvable"));
+        List<Question> questions = quesRepo.findByQuiz_IdQuiz(id);
+        quesRepo.deleteAll(questions);
+        quizrepo.delete(quiz);
     }
 }
-

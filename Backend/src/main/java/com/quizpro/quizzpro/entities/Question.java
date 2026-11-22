@@ -25,16 +25,15 @@ public class Question {
     @Column(length = 255)
     private String reponceCorrect;
 
-    private int duree;
+    private Integer duree;
 
     @ManyToOne
     @JoinColumn(name = "id_quiz")
-  
     private Quiz quiz;
 
     public Question(){}
 
-    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, int duree, Quiz quiz) {
+    public Question(String typeQuest, String contenu, String image, String document, String reponceCorrect, Integer duree, Quiz quiz) {
         this.typeQuest = typeQuest;
         this.contenu = contenu;
         this.image = image;
@@ -44,7 +43,6 @@ public class Question {
         this.quiz = quiz;
     }
 
-  
     public Long getIdQuest() { return idQuest; }
     public void setIdQuest(Long idQuest) { this.idQuest = idQuest; }
 
@@ -63,8 +61,8 @@ public class Question {
     public String getReponceCorrect() { return reponceCorrect; }
     public void setReponceCorrect(String reponceCorrect) { this.reponceCorrect = reponceCorrect; }
 
-    public int getDuree() { return duree; }
-    public void setDuree(int duree) { this.duree = duree; }
+    public Integer getDuree() { return duree; }
+    public void setDuree(Integer duree) { this.duree = duree; }
 
     public Quiz getQuiz() { return quiz; }
     public void setQuiz(Quiz quiz) { this.quiz = quiz; }

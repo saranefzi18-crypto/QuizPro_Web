@@ -11,4 +11,5 @@ public interface QuizRepository extends JpaRepository<Quiz, Long>{
     public List<Quiz> findByStatut(Statut statut);
     public boolean existsByCategorieIdCat(Long id);
     public Quiz findByIdQuiz(long id);
+
 }

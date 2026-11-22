@@ -34,11 +34,16 @@ export class CreateQuestionComponent {
 
 
   enregistrerQuestion(){
-
+const dureeNum = Number(this.duree);
     let q = new Question(this.typeQuest, this.contenu, this.image, this.document, this.reponceCorrect, this.duree, this.idQuiz);
+console.log("Question envoyée :", q);
+if(this.modeModification == false){
 
-    if(this.modeModification == false){
-      this.questionService.AjouterQuestion(this.idQuiz, q).subscribe({
+
+  // On enlève quiz et idQuest du JSON envoyé
+  const { quiz, idQuest, ...donneesQuestion } = q;
+
+  this.questionService.AjouterQuestion(this.idQuiz, donneesQuestion).subscribe({
         next :(data) => {
           console.log("Question ajoutée :", data);
           alert("Question ajoutée !");

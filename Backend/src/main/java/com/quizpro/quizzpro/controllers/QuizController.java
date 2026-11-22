@@ -51,5 +51,6 @@ public class QuizController {
     public void deleteQuiz(@PathVariable Long idQuiz) {
         quizServ.deleteQuiz(idQuiz);
     }
+    
 
 }

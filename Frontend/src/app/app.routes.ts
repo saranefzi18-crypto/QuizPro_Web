@@ -28,6 +28,7 @@ export const routes: Routes = [
   {path : 'quiz/create', component: CreateQuizComponent},
   { path: 'quiz/:idQuiz/questions', component: CreateQuestionComponent},
   { path:  'quiz/modfQuiz/:idQuiz' , component: ModifQuizComponent},
+  { path: 'question/create/:idQuiz', component: CreateQuestionComponent },
 
   
 ];
