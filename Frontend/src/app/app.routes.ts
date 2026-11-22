@@ -8,6 +8,7 @@ import { CreateQuestionComponent } from './formateur/create-question/create-ques
 import { ModifQuizComponent } from './formateur/modif-quiz/modif-quiz.component';
 
 import { ListCategorieComponent } from './admin/list-categorie/list-categorie.component';
+import { ListQuizAdminComponent } from './admin/list-quiz-admin/list-quiz-admin.component';
 import { AjoutCategorieComponent } from './formateur/ajout-categorie/ajout-categorie.component';
 
 export const routes: Routes = [
@@ -20,6 +21,7 @@ export const routes: Routes = [
 
   {path:'ajout' , component: AjoutCategorieComponent},
   {path:'listCat' , component: ListCategorieComponent},
+  {path:'admin/quiz' , component: ListQuizAdminComponent},
 
 
   /*{path: 'admindashbord', component : AdminpageComponent},*/
