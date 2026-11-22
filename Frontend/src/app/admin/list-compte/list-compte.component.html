@@ -1,0 +1,67 @@
+<header class="navbar">
+    <div class="logo">
+        <img src="logo-winshot.png" alt="Logo">
+        <span>Quizz<strong>Pro</strong></span>
+    </div>
+
+    <nav>
+        <a routerLink="/" class="btn">Déconnexion</a>
+    </nav>
+</header>
+
+<main class="main-content">
+    <div class="page-header">
+        <div>
+            <h1>Gestion des Utilisateurs</h1>
+            <p>Consultez, gérez et supprimez les comptes utilisateurs de la plateforme.</p>
+        </div>
+        <div class="nav-buttons">
+            <a routerLink="/listCat" class="btn-nav">
+                📁 Gestion Catégories
+            </a>
+            <a routerLink="/admin/quiz" class="btn-nav">
+                📝 Gestion Quiz
+            </a>
+        </div>
+    </div>
+
+    <div class="table-card">
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom & Prénom</th>
+                    <th>Email</th>
+                    <th>Rôle</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let u of utilisateurs">
+                    <td>#{{ u.id }}</td>
+                    <td>
+                        <div class="user-name">{{ u.nom }} {{ u.prenom }}</div>
+                    </td>
+                    <td>{{ u.email }}</td>
+                    <td>
+                        <span class="badge" [ngClass]="{
+                            'badge-admin': u.role.toLowerCase() === 'administrateur',
+                            'badge-formateur': u.role.toLowerCase() === 'formateur',
+                            'badge-commercial': u.role.toLowerCase() === 'commercial'
+                        }">{{ u.role }}</span>
+                    </td>
+                    <td class="actions">
+                        <button class="btn-action delete" (click)="supprimerCompte(u.id)">Supprimer</button>
+                    </td>
+                </tr>
+
+                <tr *ngIf="utilisateurs.length === 0">
+                    <td colspan="5" style="text-align: center; color: #7f8c8d; padding: 30px;">
+                        Aucun utilisateur trouvé dans la base de données.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>

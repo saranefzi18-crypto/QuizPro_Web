@@ -9,6 +9,7 @@ import { ModifQuizComponent } from './formateur/modif-quiz/modif-quiz.component'
 
 import { ListCategorieComponent } from './admin/list-categorie/list-categorie.component';
 import { ListQuizAdminComponent } from './admin/list-quiz-admin/list-quiz-admin.component';
+import { ListCompteComponent } from './admin/list-compte/list-compte.component';
 import { AjoutCategorieComponent } from './formateur/ajout-categorie/ajout-categorie.component';
 
 export const routes: Routes = [
@@ -17,14 +18,12 @@ export const routes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'login', component: LoginComponent},
 
-  {path: 'admindashbord', component : AccueilComponent},
+  {path: 'admindashbord', component : ListCompteComponent},
+  {path: 'admin/comptes', component : ListCompteComponent},
 
   {path:'ajout' , component: AjoutCategorieComponent},
   {path:'listCat' , component: ListCategorieComponent},
   {path:'admin/quiz' , component: ListQuizAdminComponent},
-
-
-  /*{path: 'admindashbord', component : AdminpageComponent},*/
 
   {path:'form/quiz', component:ListQuizComponent},
   {path : 'quiz/create', component: CreateQuizComponent},

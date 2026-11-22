@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Quiz } from '../../models/quiz';
 import { QuizService } from '../../service/quiz.service';
 
 @Component({
   selector: 'app-list-quiz-admin',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './list-quiz-admin.component.html',
   styleUrl: './list-quiz-admin.component.css'
 })
