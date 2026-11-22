@@ -1,5 +1,7 @@
 package com.quizpro.quizzpro.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,20 +16,26 @@ import com.quizpro.quizzpro.services.AuthService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 	
+	@Autowired
 	private AuthService utlServ;
-
+	
 	public AuthController(AuthService utlServ) {
-		this.utlServ = utlServ;
+		this.utlServ=utlServ;
 	}
-
+	
 	@PostMapping("/inscription")
 	public Utilisateur inscrir(@RequestBody Utilisateur utl) {
 		return utlServ.inscrire(utl);
 	}
 
 	@PostMapping("/login")
-	public Utilisateur login(@RequestBody Utilisateur utl) {
-		return utlServ.login(utl);
+	public ResponseEntity<?> login(@RequestBody Utilisateur utl){
+		try {
+			return ResponseEntity.ok(utlServ.login(utl));
+		} catch (RuntimeException e) {
+			// 401 + message lisible par le frontend (compte désactivé, mauvais mot de passe...)
+			return ResponseEntity.status(401).body(e.getMessage());
+		}
 	}
 
 }

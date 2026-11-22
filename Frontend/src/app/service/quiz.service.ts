@@ -26,6 +26,10 @@ export class QuizService {
     return this.http.patch<Quiz>(this.baseUrl + "/modifStat/"+ idQuiz +"/publiee", {});
   }
 
+  changerStatut(idQuiz: number, statut: string){
+    return this.http.patch<Quiz>(this.baseUrl + "/modifStat/" + idQuiz + "/" + statut, {});
+  }
+
   updateQuiz(idQuiz: number, quiz: Quiz) {
     return this.http.put<any>(this.baseUrl + "/modfQuiz/" + idQuiz, quiz);
   }

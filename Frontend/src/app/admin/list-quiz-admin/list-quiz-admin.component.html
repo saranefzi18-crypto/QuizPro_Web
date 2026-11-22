@@ -1,0 +1,34 @@
+<div class="quiz-section">
+
+  <h2>Liste des quiz</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let q of quizList">
+        <td>{{ q.idQuiz }}</td>
+        <td>{{ q.titre }}</td>
+        <td>{{ q.description }}</td>
+        <td>{{ q.typeQuiz }}</td>
+        <td>{{ q.statut }}</td>
+        <td class="actions-table">
+          <button class="accepter" (click)="accepter(q.idQuiz)">Accepter</button>
+          <button class="refuser" (click)="refuser(q.idQuiz)">Refuser</button>
+        </td>
+      </tr>
+      <tr *ngIf="quizList.length === 0">
+        <td colspan="6">Aucun quiz disponible.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
