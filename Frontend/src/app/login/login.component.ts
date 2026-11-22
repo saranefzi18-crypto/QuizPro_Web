@@ -24,15 +24,16 @@ export class LoginComponent {
       console.log('Utilisateur connecté :', res);
 
       this.user = res;
+      this.auth.userConnecte = res;
 
       if (res.role === "commercial") {
         this.router.navigate(['']);
       }
       else if (res.role === "formateur") {
-        this.router.navigate(['/formdashbord']);
+        this.router.navigate(['/form/quiz']);
       }
       else if (res.role === "administrateur") {
-        this.router.navigate(['/admindashbord']);
+        this.router.navigate(['/listCat']);
       }
     },
     error: err => {

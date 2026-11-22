@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<header class="navbar">
+  <div class="logo">
+    <a routerLink=""><img src="logo-winshot.png" alt="Logo" /></a>
+    <span>Quizz<strong>Pro</strong></span>
+  </div>
+
+  <nav>
+    <a href="#fonctionnalites">Fonctionnalités</a>
+    <a href="#themes">Formations</a>
+    <a href="#profils">Profils</a>
+    <a routerLink="/inscription" class="btn">Inscription</a>
+    <a routerLink="/login" class="btn">Se connecter</a>
+  </nav>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+
+<footer class="footer">
+  <p>
+
+    {{ annee }} QuizzPro par
+    <span>Winshot</span> — Plateforme de formation commerciale
+  </p>
+</footer>

@@ -1,36 +1,55 @@
 package com.quizpro.quizzpro.controllers;
-
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.quizpro.quizzpro.entities.categorie;
+import com.quizpro.quizzpro.entities.Categorie;
 import com.quizpro.quizzpro.services.CategorieService;
 
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/cat")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CategorieController {
 
-    @Autowired
     private CategorieService catServ;
 
-    // GET http://localhost:8081/api/categories
-    @GetMapping
-    public List<categorie> getAll() {
-        return catServ.getAll();
+    public CategorieController(CategorieService catServ){
+        this.catServ=catServ;
     }
 
-    // DELETE http://localhost:8081/api/categories/5
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> supprimer(@PathVariable int id) {
-        try {
-            catServ.supprimer(id);
-            return ResponseEntity.ok("Catégorie supprimée");
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    // 1. Afficher toutes les catégories
+    @GetMapping
+    public List<Categorie> getAll() {
+        return catServ.afficherCategories();
+    }
+
+    @GetMapping("/{id}")
+    public Categorie getCat(@PathVariable Long id){
+        return catServ.getCat(id);
+    }
+
+    // 2. Ajouter une catégorie
+    @PostMapping("/ajout")
+    public Categorie ajouterCategorie(@RequestBody Categorie cat) {
+        return catServ.ajouterCategorie(cat);
+    }
+
+    @DeleteMapping("del/{idCat}")
+    public void supprimerCat(@PathVariable Long idCat){
+        catServ.supprimer(idCat);
+    }
+
+    // 3. Accepter une catégorie
+    @PutMapping("/accepter/{id}")
+    public ResponseEntity<Categorie> accepterCategorie(@PathVariable Long id) {
+        Categorie updatedCat = catServ.accepterCategorie(id);
+        return ResponseEntity.ok(updatedCat);
+    }
+
+    // 4. Refuser une catégorie
+    @PutMapping("/refuser/{id}")
+    public ResponseEntity<Categorie> refuserCategorie(@PathVariable Long id) {
+        Categorie updatedCat = catServ.refuserCategorie(id);
+        return ResponseEntity.ok(updatedCat);
     }
 }
+

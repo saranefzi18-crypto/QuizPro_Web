@@ -1,7 +1,6 @@
 package com.quizpro.quizzpro.entities;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "quiz")
@@ -20,14 +19,14 @@ public class Quiz {
     @Column(length = 255)
     private String objectif;
 
-    @Column(length = 255)
+    @Column
     private int duree;
 
     @Column
-    private LocalDate dateLimite;
+    private String dateLimite;
 
     @Column
-    private LocalDate dateCreation;
+    private String dateCreation;
 
     @Column
     private int nbrTentatives;
@@ -41,6 +40,7 @@ public class Quiz {
     @Column(length = 50)
     private String typeQuiz;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20)
     private Statut statut;
 
@@ -49,7 +49,7 @@ public class Quiz {
 
     @ManyToOne
     @JoinColumn(name = "id_cat")
-    private categorie categorie;
+    private Categorie categorie;
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
@@ -59,11 +59,9 @@ public class Quiz {
     @JoinColumn(name = "id_formateur")
     private Formateur formateur;
 
-    public Quiz() {}
-
-    public Quiz(String titre, String description, String objectif, int duree, LocalDate dateLimite, 
-                LocalDate dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
-                String typeQuiz, Statut statut, float score, categorie categorie, 
+    public Quiz(String titre, String description, String objectif, int duree, String dateLimite, 
+                String dateCreation, int nbrTentatives, boolean melangeQust, boolean melangeRep, 
+                String typeQuiz, Statut statut, float score, Categorie categorie, 
                 Administrateur administrateur, Formateur formateur) {
         this.titre = titre;
         this.description = description;
@@ -82,52 +80,127 @@ public class Quiz {
         this.formateur = formateur;
     }
 
-  
+    public Quiz(){}
+
     public Long getIdQuiz() { return idQuiz; }
     public void setIdQuiz(Long idQuiz) { this.idQuiz = idQuiz; }
 
-    public String getTitre() { return titre; }
-    public void setTitre(String titre) { this.titre = titre; }
+    public String getTitre() {
+        return titre;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
 
-    public String getObjectif() { return objectif; }
-    public void setObjectif(String objectif) { this.objectif = objectif; }
+    public String getDescription() {
+        return description;
+    }
 
-    public int getDuree() { return duree; }
-    public void setDuree(int duree) { this.duree = duree; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public LocalDate getDateLimite() { return dateLimite; }
-    public void setDateLimite(LocalDate dateLimite) { this.dateLimite = dateLimite; }
+    public String getObjectif() {
+        return objectif;
+    }
 
-    public LocalDate getDateCreation() { return dateCreation; }
-    public void setDateCreation(LocalDate dateCreation) { this.dateCreation = dateCreation; }
+    public void setObjectif(String objectif) {
+        this.objectif = objectif;
+    }
 
-    public int getNbrTentatives() { return nbrTentatives; }
-    public void setNbrTentatives(int nbrTentatives) { this.nbrTentatives = nbrTentatives; }
+    public int getDuree() {
+        return duree;
+    }
 
-    public boolean isMelangeQust() { return melangeQust; }
-    public void setMelangeQust(boolean melangeQust) { this.melangeQust = melangeQust; }
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
 
-    public boolean isMelangeRep() { return melangeRep; }
-    public void setMelangeRep(boolean melangeRep) { this.melangeRep = melangeRep; }
+    public String getDateLimite() {
+        return dateLimite;
+    }
 
-    public String getTypeQuiz() { return typeQuiz; }
-    public void setTypeQuiz(String typeQuiz) { this.typeQuiz = typeQuiz; }
+    public void setDateLimite(String dateLimite) {
+        this.dateLimite = dateLimite;
+    }
 
-    public Statut getStatut() { return statut; }
-    public void setStatut(Statut statut) { this.statut = statut; }
+    public String getDateCreation() {
+        return dateCreation;
+    }
+    public void setDateCreation(String dateCreation) {
+        this.dateCreation = dateCreation;
+    }
 
-    public float getScore() { return score; }
-    public void setScore(float score) { this.score = score; } 
+    public int getNbrTentatives() {
+        return nbrTentatives;
+    }
 
-    public categorie getCategorie() { return categorie; }
-    public void setCategorie(categorie categorie) { this.categorie = categorie; }
+    public void setNbrTentatives(int nbrTentatives) {
+        this.nbrTentatives = nbrTentatives;
+    }
 
-    public Administrateur getAdministrateur() { return administrateur; }
-    public void setAdministrateur(Administrateur administrateur) { this.administrateur = administrateur; }
+    public boolean isMelangeQust() {
+        return melangeQust;
+    }
 
-    public Formateur getFormateur() { return formateur; }
-    public void setFormateur(Formateur formateur) { this.formateur = formateur; }
+    public void setMelangeQust(boolean melangeQust) {
+        this.melangeQust = melangeQust;
+    }
+
+    public boolean isMelangeRep() {
+        return melangeRep;
+    }
+
+    public void setMelangeRep(boolean melangeRep) {
+        this.melangeRep = melangeRep;
+    }
+
+    public String getTypeQuiz() {
+        return typeQuiz;
+    }
+
+    public void setTypeQuiz(String typeQuiz) {
+        this.typeQuiz = typeQuiz;
+    }
+
+    public Statut getStatut() {
+        return statut;
+    }
+
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+    public Administrateur getAdministrateur() {
+        return administrateur;
+    }
+
+    public void setAdministrateur(Administrateur administrateur) {
+        this.administrateur = administrateur;
+    }
+
+    public Formateur getFormateur() {
+        return formateur;
+    }
+
+    public void setFormateur(Formateur formateur) {
+        this.formateur = formateur;
+    }
 }
