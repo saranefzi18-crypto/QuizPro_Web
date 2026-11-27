@@ -1,0 +1,392 @@
+{
+  "info": {
+    "name": "QuizPro Web – API",
+    "description": "Collection Postman générée à partir des controllers Spring Boot du projet QuizPro_Web (Backend, port 8081).\nOrdre conseillé : Auth → Catégories → Quiz → Questions → Utilisateurs → suppressions.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST inscription formateur",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Saidi\",\n  \"prenom\": \"Bissen\",\n  \"email\": \"formateur@example.com\",\n  \"motdepasse\": \"demo1234\",\n  \"role\": \"Formateur\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/inscription",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "inscription"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST inscription administrateur",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Admin\",\n  \"prenom\": \"Quiz\",\n  \"email\": \"admin@example.com\",\n  \"motdepasse\": \"admin1234\",\n  \"role\": \"Administrateur\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/inscription",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "inscription"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"formateur@example.com\",\n  \"motdepasse\": \"demo1234\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Utilisateurs",
+      "item": [
+        {
+          "name": "GET lister utilisateurs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/utilisateurs",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "utilisateurs"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT désactiver utilisateur",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/utilisateurs/1/desactiver",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "utilisateurs", "1", "desactiver"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT activer utilisateur",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/utilisateurs/1/activer",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "utilisateurs", "1", "activer"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Catégories",
+      "item": [
+        {
+          "name": "POST ajouter catégorie",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Java\",\n  \"description\": \"Quiz sur la programmation Java\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cat/ajout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat", "ajout"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET lister catégories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cat",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET catégorie par id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cat/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT accepter catégorie",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cat/accepter/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat", "accepter", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT refuser catégorie",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cat/refuser/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat", "refuser", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE supprimer catégorie",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/cat/del/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cat", "del", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quiz",
+      "item": [
+        {
+          "name": "POST créer quiz",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titre\": \"Bases de Java\",\n  \"description\": \"Quiz d'introduction à Java\",\n  \"objectif\": \"Vérifier les notions de base\",\n  \"duree\": 30,\n  \"dateLimite\": \"2026-12-31\",\n  \"dateCreation\": \"2026-11-27\",\n  \"nbrTentatives\": 2,\n  \"melangeQust\": true,\n  \"melangeRep\": false,\n  \"typeQuiz\": \"QCM\",\n  \"statut\": \"En_Attent\",\n  \"score\": 0,\n  \"categorie\": { \"idCat\": 1 },\n  \"formateur\": { \"id\": 1 }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET lister tous les quiz",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/list",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "list"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET lister quiz acceptés",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/listAccept",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "listAccept"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET quiz par id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT modifier quiz",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titre\": \"Bases de Java (modifié)\",\n  \"description\": \"Quiz d'introduction à Java\",\n  \"objectif\": \"Vérifier les notions de base\",\n  \"duree\": 45,\n  \"dateLimite\": \"2027-01-15\",\n  \"dateCreation\": \"2026-11-27\",\n  \"nbrTentatives\": 3,\n  \"melangeQust\": true,\n  \"melangeRep\": true,\n  \"typeQuiz\": \"QCM\",\n  \"statut\": \"En_Attent\",\n  \"categorie\": { \"idCat\": 1 }\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/modfQuiz/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "modfQuiz", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH accepter quiz (statut)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/modifStat/1/Acceptée",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "modifStat", "1", "Acceptée"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH refuser quiz (statut)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/modifStat/1/Refusée",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "modifStat", "1", "Refusée"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE supprimer quiz",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/quiz/del/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "quiz", "del", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Questions",
+      "item": [
+        {
+          "name": "POST ajouter question au quiz",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"typeQuest\": \"QCM\",\n  \"contenu\": \"Quel mot-clé permet d'hériter d'une classe en Java ?\",\n  \"image\": \"\",\n  \"document\": \"\",\n  \"reponceCorrect\": \"extends\",\n  \"duree\": 30\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ques/ajout/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ques", "ajout", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET lister questions d'un quiz",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ques/listQues/Quiz/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ques", "listQues", "Quiz", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PUT modifier question",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"typeQuest\": \"QCM\",\n  \"contenu\": \"Quel mot-clé permet d'hériter d'une classe en Java ? (modifié)\",\n  \"image\": \"\",\n  \"document\": \"\",\n  \"reponceCorrect\": \"extends\",\n  \"duree\": 45\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/ques/mod/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ques", "mod", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE supprimer question",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/ques/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "ques", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
